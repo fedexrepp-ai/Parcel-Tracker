@@ -50,14 +50,45 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const parcel = doc.data();
 
+              const steps = [
+    "Shipment Created",
+    "Picked Up",
+    "In Transit",
+    "Custom Check",
+    "Out for Delivery",
+    "Delivered"
+];
+
+const currentStep = steps.findIndex(
+    step => step.toLowerCase() === parcel.status.toLowerCase()
+);
+
+let progressHTML = '<div class="progress-bar">';
+
+steps.forEach((step, index) => {
+
+    let circle = index < currentStep ? "✓" : index + 1;
+
+    progressHTML += `
+        <div class="step ${index <= currentStep ? "active" : ""}">
+            <div class="circle">${circle}</div>
+            <div class="step-title">${step}</div>
+        </div>
+    `;
+
+});
+
+progressHTML += "</div>";
                 let timeline = "";
+
+              
 
                 if (parcel.history && parcel.history.length > 0) {
 
                     const history = [...parcel.history].reverse();
+                  
 
                     history.forEach((item) => {
-
                         
                             let date = "unknown time";
                       if (item.time) {
@@ -87,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 result.innerHTML = `
                     <h3>Parcel Details</h3>
-
+                    ${progressHTML}
                     <p><b>Tracking Number:</b> ${parcel.trackingNumber}</p>
    <p><b>Parcel Type:</b> ${parcel.parcelType || "Not available"}</p>
              <p><b>Weight:</b> ${parcel.parcelweight || "Not available"} kg</p>
