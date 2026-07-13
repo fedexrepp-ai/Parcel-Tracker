@@ -51,28 +51,36 @@ document.addEventListener("DOMContentLoaded", () => {
                 let timeline = "";
 
 
-                if (parcel.history) {
+                if (parcel.history && parcel.history.length > 0) {
 
-                    parcel.history.forEach((item) => {
+    const history = [...parcel.history].reverse();
 
-                        timeline += `
-                        <div class="history-item">
-                            <h4>🚚 ${item.status}</h4>
-                            <p>📍 ${item.location}</p>
-                            <p>🕒 ${item.time}</p>
-                        </div>
-                        `;
+    history.forEach((item) => {
 
-                    });
+        const date = item.time
+            ? new Date(item.time).toLocaleString("en-US", {
+                  day: "numeric",
+                  month: "short",
+                  year: "numeric",
+                  hour: "numeric",
+                  minute: "2-digit"
+              })
+            : "Unknown time";
 
-                } else {
+        timeline += `
+        <div class="timeline-item">
+            <h4>🚚 ${item.status}</h4>
+            <p>📍 ${item.location}</p>
+            <small>🕒 ${date}</small>
+        </div>
+        `;
+    });
 
-                    timeline = "<p>No history available yet.</p>";
+} else {
 
-                }
-
-
-                result.innerHTML = `
+    timeline = "<p>No tracking history available.</p>";
+}                
+result.innerHTML = `
 
                 <h3>📦 Parcel Details</h3>
 
@@ -82,15 +90,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 <p><b>Receiver:</b> ${parcel.receiver}</p>
 
-                <p><b>Status:</b> ${parcel.status}</p>
+            <p><b>Status:</b> <span class="status">${parcel.status}</span></p>
 
                 <p><b>Location:</b> ${parcel.location}</p>
 
 
                 <h3>📍 Tracking History</h3>
 
-                ${timeline}
-
+<div class="timeline">
+    ${timeline}
+</div>
                 `;
 
             });
