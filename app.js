@@ -10,12 +10,12 @@ import {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const trackButton = document.querySelector("button");
+    const button = document.querySelector("button");
     const trackingInput = document.getElementById("trackingCode");
     const result = document.getElementById("result");
 
 
-    trackButton.addEventListener("click", async () => {
+    button.addEventListener("click", async () => {
 
         const trackingNumber = trackingInput.value.trim();
 
@@ -48,21 +48,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const parcel = doc.data();
 
-                let historyHTML = "";
+                let timeline = "";
+
 
                 if (parcel.history) {
 
                     parcel.history.forEach((item) => {
 
-                        historyHTML += `
-                        <div>
+                        timeline += `
+                        <div class="history-item">
                             <h4>🚚 ${item.status}</h4>
                             <p>📍 ${item.location}</p>
-                            <hr>
+                            <p>🕒 ${item.time}</p>
                         </div>
                         `;
 
                     });
+
+                } else {
+
+                    timeline = "<p>No history available yet.</p>";
 
                 }
 
@@ -79,12 +84,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 <p><b>Status:</b> ${parcel.status}</p>
 
-                <p><b>Current Location:</b> ${parcel.location}</p>
+                <p><b>Location:</b> ${parcel.location}</p>
 
 
                 <h3>📍 Tracking History</h3>
 
-                ${historyHTML}
+                ${timeline}
 
                 `;
 
@@ -95,8 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             console.error(error);
 
-            result.innerHTML =
-            "Error loading tracking history.";
+            result.innerHTML = "Error loading parcel.";
 
         }
 
