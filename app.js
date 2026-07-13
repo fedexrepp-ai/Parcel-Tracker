@@ -145,7 +145,6 @@ ${parcel.status}
         console.error(error);
         result.innerHTML = "Error loading parcel.";
 
-    }
 
 }
 
