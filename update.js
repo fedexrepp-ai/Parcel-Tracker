@@ -83,10 +83,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         } catch (error) {
 
-            console.error(error);
-
             message.innerHTML =
-            "Error updating parcel.";
+            error.message;
+          console.error(error);
 
         }
     });
