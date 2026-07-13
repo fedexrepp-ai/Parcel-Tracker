@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             if (snapshot.empty) {
-                message.innerHTML = "❌ Parcel not found.";
+                message.innerHTML = " Parcel not found.";
                 return;
             }
 
@@ -90,6 +90,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
-    });
 
 });
