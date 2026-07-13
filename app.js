@@ -61,7 +61,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         
                             let date = "unknown time";
                       if (item.time) {
-                        date =
+                        if (item.time.toDate) {
+                          date = 
                           item.time.toDate().toLocalestring();
                       } else {
                         date = new
