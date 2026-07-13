@@ -1,3 +1,14 @@
+:root{
+    --primary: #0D2B5B;      /* Navy Blue */
+    --secondary: #D4A017;    /* Gold */
+    --background: #F7F8FA;   /* Light Gray */
+    --white: #FFFFFF;
+    --text: #2F3A45;
+    --border: #E5E7EB;
+}
+
+
+
 body {
     font-family: Arial, sans-serif;
     background: #f4f6f9;
@@ -15,8 +26,7 @@ body {
 }
 
 h1 {
-    text-align: center;
-    color: #4d148c;
+    color: var(--primary);
 }
 
 input {
@@ -27,17 +37,12 @@ input {
 }
 
 button {
-    padding: 12px 18px;
-    background: #ff6600;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
+    background: var(--secondary);
+    color: var(--white);
 }
 
 button:hover {
-    background: #e65c00;
+    background: #b98b14;
 }
 
 .details {
@@ -57,10 +62,7 @@ button:hover {
 }
 
 .timeline {
-    position: relative;
-    margin-top: 30px;
-    padding-left: 30px;
-    border-left: 3px solid #4d148c;
+    border-left: 3px solid var(--primary);
 }
 
 .timeline-item {
@@ -69,14 +71,8 @@ button:hover {
 }
 
 .timeline-item::before {
-    content: "";
-    position: absolute;
-    left: -39px;
-    top: 5px;
-    width: 14px;
-    height: 14px;
-    background: #ff6600;
-    border-radius: 50%;
+    background: var(--secondary);
+    border:3px solid var(--white);
 }
 
 .timeline h4 {
@@ -99,25 +95,33 @@ button:hover {
     font-weight: bold;
 }
 
-.status.in-transit {
-    background: #007bff;
+.status{
+    color: var(--white);
+    font-weight: bold;
 }
 
-.status.out-for-delivery {
-    background: #ff9800;
+.status.shipment-created{
+    background: var(--secondary);
 }
 
-.status.delivered {
-    background: #28a745;
+.status.picked-up{
+    background: var(--primary);
 }
 
-.status.custom-check,
-.status.customs-check {
-    background: #6f42c1;
+.status.in-transit{
+    background: var(--primary);
 }
 
-.status.delayed {
-    background: #dc3545;
+.status.custom-check{
+    background: var(--secondary);
+}
+
+.status.out-for-delivery{
+    background: var(--primary);
+}
+
+.status.delivered{
+    background: var(--secondary);
 }
 
 .progress-bar {
@@ -136,17 +140,12 @@ button:hover {
 }
 
 .step.active {
-    color: #28a745;
+    color: var(--primary);
 }
 
-.step .circle {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: #ccc;
-    color: white;
-    margin: 0 auto 8px;
-    line-height: 28px;
+.step.active .circle {
+    background: var(--secondary);
+    color: var(--white);
 }
 
 .step.active .circle {
@@ -167,15 +166,11 @@ button:hover {
     color:#999;
 }
 
-.circle{
-    width:40px;
-    height:40px;
-    line-height:40px;
-    border-radius:50%;
-    background:#ddd;
-    margin:0 auto 10px;
-    font-weight:bold;
+.circle {
+    background: var(--border);
+    color: var(--text);
 }
+
 
 .active{
     color:#0a7d32;
