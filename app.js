@@ -58,10 +58,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     history.forEach((item) => {
 
-                        const date = item.time
-                            ? new Date(item.time).toLocaleString()
-                            : "Unknown time";
-
+                        
+                            let date = "unknown time";
+                      if (item.time) {
+                        date =
+                          item.time.toDate().toLocalestring();
+                      } else {
+                        date = new
+                          Date(item.time).toLocaleString();
+                      }
+                    }
                         timeline += `
                             <div class="timeline-item">
                                 <h4>${item.status}</h4>
