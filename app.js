@@ -1,24 +1,86 @@
+import { db } from "./firebase.js";
+
+import {
+  collection,
+  query,
+  where,
+  getDocs
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+
 document.addEventListener("DOMContentLoaded", () => {
+
     const trackButton = document.querySelector("button");
     const trackingInput = document.getElementById("trackingCode");
     const result = document.getElementById("result");
 
-    trackButton.addEventListener("click", () => {
-        const trackingCode = trackingInput.value.trim();
 
-        if (trackingCode === "") {
-            result.innerHTML = `
-                <p style="color:red;">
-                    Please enter a tracking number.
-                </p>
-            `;
+    trackButton.addEventListener("click", async () => {
+
+        const trackingNumber = trackingInput.value.trim();
+
+        if (!trackingNumber) {
+            result.innerHTML = "Please enter a tracking number.";
             return;
         }
 
-        result.innerHTML = `
-            <h3>Tracking Result</h3>
-            <p><strong>Tracking Number:</strong> ${trackingCode}</p>
-            <p>Status: 🔍 Searching Firebase...</p>
-        `;
+
+        result.innerHTML = "Searching...";
+
+
+        try {
+
+            const q = query(
+                collection(db, "parcels"),
+                where("trackingNumber", "==", trackingNumber)
+            );
+
+
+            const snapshot = await getDocs(q);
+
+
+            if (snapshot.empty) {
+
+                result.innerHTML = `
+                    <p>❌ Parcel not found.</p>
+                `;
+
+                return;
+            }
+
+
+            snapshot.forEach((doc) => {
+
+                const parcel = doc.data();
+
+
+                result.innerHTML = `
+                    <h3>📦 Parcel Details</h3>
+
+                    <p><b>Tracking Number:</b> ${parcel.trackingNumber}</p>
+
+                    <p><b>Sender:</b> ${parcel.sender}</p>
+
+                    <p><b>Receiver:</b> ${parcel.receiver}</p>
+
+                    <p><b>Status:</b> ${parcel.status}</p>
+
+                    <p><b>Current Location:</b> ${parcel.location}</p>
+                `;
+
+            });
+
+
+        } catch (error) {
+
+            console.error(error);
+
+            result.innerHTML = `
+                <p>Error searching parcel.</p>
+            `;
+
+        }
+
     });
+
 });
