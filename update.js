@@ -89,6 +89,6 @@ document.addEventListener("DOMContentLoaded", () => {
             "Error updating parcel.";
 
         }
-
+    });
 
 });
