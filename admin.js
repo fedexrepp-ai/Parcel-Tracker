@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const deliveryDate = document.getElementById("deliveryDate").value;
 
         let status = document.getElementById("status").value;
-      const customStarus = document.getElementById("customStatus").value.trim();
+      const customStatus = document.getElementById("customStatus").value.trim();
 
       if (status === "Other" && customStatus) {
         status = customStatus;
