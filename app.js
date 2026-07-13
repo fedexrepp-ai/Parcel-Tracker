@@ -14,157 +14,139 @@ document.addEventListener("DOMContentLoaded", () => {
     const trackingInput = document.getElementById("trackingCode");
     const result = document.getElementById("result");
 
+async function searchParcel() {
 
-    button.addEventListener("click", async () => {
+button.addEventListener("click", searchParcel);
 
-        const trackingNumber = trackingInput.value.trim();
+trackingInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+        searchParcel();
+    }
+});
 
-        if (!trackingNumber) {
-            result.innerHTML = "Please enter tracking number.";
+async function searchParcel() {
+
+    const trackingNumber = trackingInput.value.trim();
+
+    if (!trackingNumber) {
+        result.innerHTML = "Please enter a tracking number.";
+        return;
+    }
+
+    result.innerHTML = "Searching...";
+
+    try {
+
+        const q = query(
+            collection(db, "parcels"),
+            where("trackingNumber", "==", trackingNumber)
+        );
+
+        const snapshot = await getDocs(q);
+
+        if (snapshot.empty) {
+            result.innerHTML = " Parcel not found.";
             return;
         }
-        
-        const steps = [
-    "Shipment Created",
-    "Picked Up",
-    "In Transit",
-    "Custom Check",
-    "Out for Delivery",
-    "Delivered"
-];
 
-const currentStep = steps.findIndex(
-    step => step.toLowerCase() === parcel.status.toLowerCase()
-);
+        snapshot.forEach((doc) => {
 
-let progressHTML = '<div class="progress-bar">';
+            const parcel = doc.data();
 
-steps.forEach((step, index) => {
-    progressHTML += `
-        <div class="step ${index <= currentStep ? "active" : ""}">
-            <div class="circle">${index < currentStep ? "✓" : index + 1}</div>
-            <div>${step}</div>
-        </div>
-    `;
-});
+            const steps = [
+                "Shipment Created",
+                "Picked Up",
+                "In Transit",
+                "Custom Check",
+                "Out for Delivery",
+                "Delivered"
+            ];
 
-progressHTML += "</div>";
-
-        result.innerHTML = "Searching...";
-
-
-        try {
-
-            const q = query(
-                collection(db, "parcels"),
-                where("trackingNumber", "==", trackingNumber)
+            const currentStep = steps.findIndex(
+                step => step.toLowerCase() === parcel.status.toLowerCase()
             );
 
+            let progressHTML = '<div class="progress-bar">';
 
-            const snapshot = await getDocs(q);
+            steps.forEach((step, index) => {
+                progressHTML += `
+                    <div class="step ${index <= currentStep ? "active" : ""}">
+                        <div class="circle">${index < currentStep ? "✓" : index + 1}</div>
+                        <div>${step}</div>
+                    </div>
+                `;
+            });
 
+            progressHTML += "</div>";
 
-            if (snapshot.empty) {
-                result.innerHTML = "❌ Parcel not found.";
-                return;
+            let timeline = "";
+
+            if (parcel.history && parcel.history.length > 0) {
+
+                const history = [...parcel.history].reverse();
+
+                history.forEach((item) => {
+
+                    const date = item.time
+                        ? new Date(item.time).toLocaleString("en-US", {
+                              day: "numeric",
+                              month: "short",
+                              year: "numeric",
+                              hour: "numeric",
+                              minute: "2-digit"
+                          })
+                        : "Unknown time";
+
+                    timeline += `
+                        <div class="timeline-item">
+                            <h4> ${item.status}</h4>
+                            <p> ${item.location}</p>
+                            <small> ${date}</small>
+                        </div>
+                    `;
+                });
+
+            } else {
+                timeline = "<p>No tracking history available.</p>";
             }
+    
+    result.innerHTML = `
 
+<h3> Parcel Details</h3>
 
-            snapshot.forEach((doc) => {
+${progressHTML}
 
-                const parcel = doc.data();
+<p><b>Tracking Number:</b> ${parcel.trackingNumber}</p>
 
-                let timeline = "";
+<p><b>Sender:</b> ${parcel.sender}</p>
 
+<p><b>Receiver:</b> ${parcel.receiver}</p>
 
-                if (parcel.history && parcel.history.length > 0) {
+<p><b>Status:</b>
+<span class="status ${parcel.status.toLowerCase().replace(/\s+/g,'-')}">
+${parcel.status}
+</span>
+</p>
 
-    const history = [...parcel.history].reverse();
+<p><b>Location:</b> ${parcel.location}</p>
 
-    history.forEach((item) => {
-
-        const date = item.time
-            ? new Date(item.time).toLocaleString("en-US", {
-                  day: "numeric",
-                  month: "short",
-                  year: "numeric",
-                  hour: "numeric",
-                  minute: "2-digit"
-              })
-            : "Unknown time";
-
-        timeline += `
-        <div class="timeline-item">
-            <h4>🚚 ${item.status}</h4>
-            <p>📍 ${item.location}</p>
-            <small>🕒 ${date}</small>
-        </div>
-        `;
-    });
-
-} else {
-
-    timeline = "<p>No tracking history available.</p>";
-}                
-result.innerHTML = `
-
-const steps = [
-  "Shipment Created",
-  "Picked Up",
-  "In Transit",
-  "Custom Check",
-  "Out for Delivery",
-  "Delivered"
-];
-
-const currentStep = steps.findIndex(
-  step => step.toLowerCase() === parcel.status.toLowerCase()
-);
-
-let progressHTML = '<div class="progress-bar">';
-
-steps.forEach((step, index) => {
-  progressHTML += `
-    <div class="step ${index <= currentStep ? "active" : ""}">
-      <div class="circle">${index < currentStep ? "✓" : index + 1}</div>
-      <div>${step}</div>
-    </div>
-  `;
-});
-
-progressHTML += "</div>";
-                <h3>📦 Parcel Details</h3>
-                ${progreeHTML}
-
-                <p><b>Tracking Number:</b> ${parcel.trackingNumber}</p>
-
-                <p><b>Sender:</b> ${parcel.sender}</p>
-
-                <p><b>Receiver:</b> ${parcel.receiver}</p>
-
-          <p><b>Status:</b> <span class="status ${parcel.status.toLowerCase().replace(/\s+/g,'-')}">${parcel.status}</span></p>
-
-                <p><b>Location:</b> ${parcel.location}</p>
-
-
-                <h3>📍 Tracking History</h3>
+<h3> Tracking History</h3>
 
 <div class="timeline">
     ${timeline}
 </div>
-                `;
 
-            });
+`;
 
+        });
 
-        } catch (error) {
+    } catch (error) {
 
-            console.error(error);
+        console.error(error);
+        result.innerHTML = "Error loading parcel.";
 
-            result.innerHTML = "Error loading parcel.";
+    }
 
-        }
-
-    });
+}
 
 });

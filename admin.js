@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             message.innerHTML = `
-                <h3>✅ Parcel Created</h3>
+                <h3> Parcel Created</h3>
                 <p><b>Tracking Number:</b> ${trackingNumber}</p>
                 <p>Sender: ${sender}</p>
                 <p>Receiver: ${receiver}</p>

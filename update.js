@@ -68,14 +68,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     status: status,
                     location: location,
                     time: new 
-                    Date().toISOString()
+                    Date().toISOString() 
                 })
 
             });
 
 
             message.innerHTML = `
-                ✅ Tracking updated successfully
+                Tracking updated successfully
                 <br>
                 ${trackingNumber}
             `;
