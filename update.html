@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Parcel Tracking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>🚚 Update Parcel Tracking</h1>
+
+<input id="trackingNumber" placeholder="Tracking Number">
+
+<br><br>
+
+<input id="location" placeholder="Current Location">
+
+<br><br>
+
+<select id="status">
+    <option>Parcel Received</option>
+    <option>In Transit</option>
+    <option>Out for Delivery</option>
+    <option>Delivered</option>
+</select>
+
+<br><br>
+
+<button id="updateParcel">
+    Update Tracking
+</button>
+
+<div id="message"></div>
+
+
+<script type="module" src="firebase.js"></script>
+<script type="module" src="update.js"></script>
+
+</body>
+</html>
