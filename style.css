@@ -1,38 +1,121 @@
 body {
     font-family: Arial, sans-serif;
-    background: #f4f7fb;
+    background: #f4f6f9;
     margin: 0;
     padding: 20px;
-    text-align: center;
+}
+
+.container {
+    max-width: 700px;
+    margin: auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.1);
 }
 
 h1 {
-    color: #0d47a1;
+    text-align: center;
+    color: #4d148c;
 }
 
 input {
-    width: 300px;
-    max-width: 90%;
+    width: 70%;
     padding: 12px;
-    margin: 10px;
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 6px;
 }
 
 button {
-    padding: 12px 20px;
-    background: #0d47a1;
+    padding: 12px 18px;
+    background: #ff6600;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     cursor: pointer;
+    font-weight: bold;
 }
 
 button:hover {
-    background: #1565c0;
+    background: #e65c00;
 }
 
-#result {
-    margin-top: 20px;
-    padding: 15px;
+.details {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 10px;
+    background: #fafafa;
+}
+
+.status {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    color: white;
+    background: #007bff;
+    font-weight: bold;
+}
+
+.timeline {
+    position: relative;
+    margin-top: 30px;
+    padding-left: 30px;
+    border-left: 3px solid #4d148c;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -39px;
+    top: 5px;
+    width: 14px;
+    height: 14px;
+    background: #ff6600;
+    border-radius: 50%;
+}
+
+.timeline h4 {
+    margin: 0;
+    color: #333;
+}
+
+.timeline p {
+    margin: 4px 0;
+    color: #666;
+}
+
+.timeline small {
+    color: #999;
+}
+.status {
+    padding: 6px 14px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.status.in-transit {
+    background: #007bff;
+}
+
+.status.out-for-delivery {
+    background: #ff9800;
+}
+
+.status.delivered {
+    background: #28a745;
+}
+
+.status.custom-check,
+.status.customs-check {
+    background: #6f42c1;
+}
+
+.status.delayed {
+    background: #dc3545;
 }

@@ -90,7 +90,7 @@ result.innerHTML = `
 
                 <p><b>Receiver:</b> ${parcel.receiver}</p>
 
-            <p><b>Status:</b> <span class="status">${parcel.status}</span></p>
+          <p><b>Status:</b> <span class="status ${parcel.status.toLowerCase().replace(/\s+/g,'-')}">${parcel.status}</span></p>
 
                 <p><b>Location:</b> ${parcel.location}</p>
 
