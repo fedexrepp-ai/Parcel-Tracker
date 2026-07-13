@@ -89,17 +89,21 @@ document.addEventListener("DOMContentLoaded", () => {
                     <h3>Parcel Details</h3>
 
                     <p><b>Tracking Number:</b> ${parcel.trackingNumber}</p>
-
+   <p><b>Parcel Type:</b> ${parcel.parcelType || "Not available"}</p>
+             <p><b>Weight:</b> ${parcel.parcelweight || "Not available"} kg</p>
                     <p><b>Sender:</b> ${parcel.sender}</p>
-
+                       <p><b>Sender AAddress:</b> ${parcel.senderAddress || "Not available"}</p>
                     <p><b>Receiver:</b> ${parcel.receiver}</p>
-
+                       <p><b>Receiver Address:</b> ${parcel.receiverAddress || "Not available"}</p>
+<p><b>Origin:</b> ${parcel.origin || "Not available"}</p>
+<p><b>Destination:</b> ${parcel.destination || "Not available"}</p>
+                                           <p><b>Current Location:</b> ${parcel.location}</p>                                      
+                    <p><b>Estimated Delivery:</> ${parcel.deliveryDate || "Not available"}</p>
+  
                     <p><b>Status:</b> ${parcel.status}</p>
-
-                    <p><b>Location:</b> ${parcel.location}</p>
-
+                    
                     <h3>Tracking History</h3>
-
+  
                     <div class="timeline">
                         ${timeline}
                     </div>
