@@ -28,7 +28,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const location = document.getElementById("location").value.trim();
         const deliveryDate = document.getElementById("deliveryDate").value;
 
-        const status = document.getElementById("status").value;
+        let status = document.getElementById("status").value;
+      const customStarus = document.getElementById("customStatus").value.trim();
+
+      if (status === "Other" && customStatus) {
+        status = customStatus;
+      }
 
 
         if (!sender || !receiver || !location) {
