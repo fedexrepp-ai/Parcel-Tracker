@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SwiftParcel Logistics</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -13,21 +13,50 @@
 <header class="header">
     <img src="logo.png" alt="SwiftParcel Logistics" class="logo">
 
-    <div>
+    <div class="company-info">
         <h1>SwiftParcel Logistics</h1>
         <p>Fast Delivery • Safe Handling • Reliable Service</p>
     </div>
 </header>
 
-<h2>Track Your Parcel</h2>
+<section class="hero">
 
-<p>Track your parcel using your tracking number.</p>
+    <h2>Track Your Shipment</h2>
 
-<input type="text" id="trackingCode" placeholder="Enter Tracking Number">
+    <p>
+        Enter your tracking number below to view the latest shipment updates.
+    </p>
 
-<button>Track Parcel</button>
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="trackingCode"
+            placeholder="Enter Tracking Number">
+
+        <button>
+            Track Shipment
+        </button>
+
+    </div>
+
+</section>
 
 <div id="result"></div>
+
+<footer>
+
+    <p><strong>SwiftParcel Logistics</strong></p>
+
+    <p>
+        Fast Delivery • Safe Handling • Reliable Service
+    </p>
+
+    <p>
+        ©️ 2026 SwiftParcel Logistics. All Rights Reserved.
+    </p>
+
+</footer>
 
 <script type="module" src="firebase.js"></script>
 <script type="module" src="app.js"></script>
