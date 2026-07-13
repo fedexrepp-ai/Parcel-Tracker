@@ -23,6 +23,32 @@ document.addEventListener("DOMContentLoaded", () => {
             result.innerHTML = "Please enter tracking number.";
             return;
         }
+        
+        const steps = [
+    "Shipment Created",
+    "Picked Up",
+    "In Transit",
+    "Custom Check",
+    "Out for Delivery",
+    "Delivered"
+];
+
+const currentStep = steps.findIndex(
+    step => step.toLowerCase() === parcel.status.toLowerCase()
+);
+
+let progressHTML = '<div class="progress-bar">';
+
+steps.forEach((step, index) => {
+    progressHTML += `
+        <div class="step ${index <= currentStep ? "active" : ""}">
+            <div class="circle">${index < currentStep ? "✓" : index + 1}</div>
+            <div>${step}</div>
+        </div>
+    `;
+});
+
+progressHTML += "</div>";
 
         result.innerHTML = "Searching...";
 
@@ -82,7 +108,33 @@ document.addEventListener("DOMContentLoaded", () => {
 }                
 result.innerHTML = `
 
+const steps = [
+  "Shipment Created",
+  "Picked Up",
+  "In Transit",
+  "Custom Check",
+  "Out for Delivery",
+  "Delivered"
+];
+
+const currentStep = steps.findIndex(
+  step => step.toLowerCase() === parcel.status.toLowerCase()
+);
+
+let progressHTML = '<div class="progress-bar">';
+
+steps.forEach((step, index) => {
+  progressHTML += `
+    <div class="step ${index <= currentStep ? "active" : ""}">
+      <div class="circle">${index < currentStep ? "✓" : index + 1}</div>
+      <div>${step}</div>
+    </div>
+  `;
+});
+
+progressHTML += "</div>";
                 <h3>📦 Parcel Details</h3>
+                ${progreeHTML}
 
                 <p><b>Tracking Number:</b> ${parcel.trackingNumber}</p>
 
