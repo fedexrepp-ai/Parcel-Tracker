@@ -20,10 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const trackingNumber = trackingInput.value.trim();
 
         if (!trackingNumber) {
-            result.innerHTML = "Please enter a tracking number.";
+            result.innerHTML = "Please enter tracking number.";
             return;
         }
-
 
         result.innerHTML = "Searching...";
 
@@ -40,11 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             if (snapshot.empty) {
-
-                result.innerHTML = `
-                    <p>❌ Parcel not found.</p>
-                `;
-
+                result.innerHTML = "❌ Parcel not found.";
                 return;
             }
 
@@ -53,19 +48,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const parcel = doc.data();
 
+                let historyHTML = "";
+
+                if (parcel.history) {
+
+                    parcel.history.forEach((item) => {
+
+                        historyHTML += `
+                        <div>
+                            <h4>🚚 ${item.status}</h4>
+                            <p>📍 ${item.location}</p>
+                            <hr>
+                        </div>
+                        `;
+
+                    });
+
+                }
+
 
                 result.innerHTML = `
-                    <h3>📦 Parcel Details</h3>
 
-                    <p><b>Tracking Number:</b> ${parcel.trackingNumber}</p>
+                <h3>📦 Parcel Details</h3>
 
-                    <p><b>Sender:</b> ${parcel.sender}</p>
+                <p><b>Tracking Number:</b> ${parcel.trackingNumber}</p>
 
-                    <p><b>Receiver:</b> ${parcel.receiver}</p>
+                <p><b>Sender:</b> ${parcel.sender}</p>
 
-                    <p><b>Status:</b> ${parcel.status}</p>
+                <p><b>Receiver:</b> ${parcel.receiver}</p>
 
-                    <p><b>Current Location:</b> ${parcel.location}</p>
+                <p><b>Status:</b> ${parcel.status}</p>
+
+                <p><b>Current Location:</b> ${parcel.location}</p>
+
+
+                <h3>📍 Tracking History</h3>
+
+                ${historyHTML}
+
                 `;
 
             });
@@ -75,9 +95,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             console.error(error);
 
-            result.innerHTML = `
-                <p>Error searching parcel.</p>
-            `;
+            result.innerHTML =
+            "Error loading tracking history.";
 
         }
 
