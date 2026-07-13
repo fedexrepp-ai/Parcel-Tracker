@@ -67,7 +67,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 history: arrayUnion({
                     status: status,
                     location: location,
-                    time: new Date()
+                    time: new 
+                    Date().toISOString()
                 })
 
             });
