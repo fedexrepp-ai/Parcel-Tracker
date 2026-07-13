@@ -1,5 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwiftParcel Logistics</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
 <header class="header">
     <img src="logo.png" alt="SwiftParcel Logistics" class="logo">
 
@@ -8,18 +18,18 @@
         <p>Fast Delivery • Safe Handling • Reliable Service</p>
     </div>
 </header>
-<body>
 
-    <h1> Parcel Tracker</h1>
+<h2>Track Your Parcel</h2>
 
-    <p>Track your parcel using your tracking number.</p>
+<p>Track your parcel using your tracking number.</p>
 
-    <input type="text" id="trackingCode" placeholder="Enter Tracking Number">
+<input type="text" id="trackingCode" placeholder="Enter Tracking Number">
 
-    <button>Track Parcel</button>
+<button>Track Parcel</button>
 
-    <div id="result"></div>
-    <script type="module" src="firebase.js"></script>
+<div id="result"></div>
+
+<script type="module" src="firebase.js"></script>
 <script type="module" src="app.js"></script>
 
 </body>
