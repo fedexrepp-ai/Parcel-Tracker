@@ -153,6 +153,15 @@ history.forEach((item) => {
 <p>${parcel.deliveryDate || "Pending"}</p>
 </div>
 
+<div class="info-box">
+<h4>Last Updated</h4>
+<p>
+${
+parcel.createdAt && parcel.createdAt.toDate
+? parcel.createdAt.toDate().toLocaleString()
+: "Not Available"
+}
+</p>
 </div>
 
 <h2>👤 Sender Information</h2>
