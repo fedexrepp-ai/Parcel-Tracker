@@ -1,65 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SwiftParcel Logistics</title>
 
-    <link rel="stylesheet" href="style.css">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SwiftParcel Logistics</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
+
 <header class="header">
+
     <img src="logo.png" alt="SwiftParcel Logistics" class="logo">
 
     <div class="company-info">
+
         <h1>SwiftParcel Logistics</h1>
-        <p>Fast Delivery • Safe Handling • Reliable Service</p>
+
+        <p>
+        Fast Delivery • Safe Handling • Reliable Service
+        </p>
+
     </div>
+
 </header>
+
+
+
+<nav class="navbar">
+
+<a href="#">Home</a>
+
+<a href="#track">Track Shipment</a>
+
+<a href="#services">Services</a>
+
+<a href="#contact">Contact</a>
+
+</nav>
+
+
+
 
 <section class="hero">
 
-    <h2>Track Your Shipment</h2>
 
-    <p>
-        Enter your tracking number below to view the latest shipment updates.
-    </p>
+<h2>
+Track Your Shipment
+</h2>
 
-    <div class="search-box">
 
-        <input
-            type="text"
-            id="trackingCode"
-            placeholder="Enter Tracking Number">
+<p>
+Enter your tracking number to get real-time shipment updates.
+</p>
 
-        <button>
-            Track Shipment
-        </button>
 
-    </div>
+<div class="search-box" id="track">
+
+
+<input 
+type="text"
+id="trackingCode"
+placeholder="Enter Tracking Number">
+
+
+<button>
+Track Shipment
+</button>
+
+
+</div>
+
 
 </section>
 
+
+
+
+
+<section class="services" id="services">
+
+
+<h2>
+Our Services
+</h2>
+
+
+
+<div class="service-grid">
+
+
+
+<div class="service-card">
+
+<h3>🚚 Express Delivery</h3>
+
+<p>
+Fast and reliable delivery solutions for your packages.
+</p>
+
+</div>
+
+
+
+<div class="service-card">
+
+<h3>🌍 Global Shipping</h3>
+
+<p>
+Secure international shipping and logistics support.
+</p>
+
+</div>
+
+
+
+<div class="service-card">
+
+<h3>📦 Secure Handling</h3>
+
+<p>
+Professional handling from pickup to delivery.
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<section class="why-us">
+
+
+<h2>
+Why Choose SwiftParcel?
+</h2>
+
+
+<p>
+✓ Real-time shipment tracking
+</p>
+
+<p>
+✓ Safe and secure parcel handling
+</p>
+
+<p>
+✓ Reliable delivery network
+</p>
+
+<p>
+✓ Customer-focused support
+</p>
+
+
+</section>
+
+
+
+
+
 <div id="result"></div>
 
-<footer>
 
-    <p><strong>SwiftParcel Logistics</strong></p>
 
-    <p>
-        Fast Delivery • Safe Handling • Reliable Service
-    </p>
 
-    <p>
-        ©️ 2026 SwiftParcel Logistics. All Rights Reserved.
-    </p>
+
+<footer id="contact">
+
+
+<h3>
+SwiftParcel Logistics
+</h3>
+
+
+<p>
+Fast Delivery • Safe Handling • Reliable Service
+</p>
+
+
+<p>
+© 2026 SwiftParcel Logistics. All Rights Reserved.
+</p>
+
 
 </footer>
 
+
+
+
 <script type="module" src="firebase.js"></script>
+
 <script type="module" src="app.js"></script>
 
+
 </body>
+
 </html>
