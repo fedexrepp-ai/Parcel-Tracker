@@ -223,6 +223,22 @@ ${timeline}
 
 </div>
 
+<div class="tracking-actions">
+
+<button onclick="copyTracking('${parcel.trackingNumber}')">
+📋 Copy Tracking Number
+</button>
+
+<button onclick="window.print()">
+🖨️ Print Details
+</button>
+
+<button onclick="location.reload()">
+🔄 Track Another Shipment
+</button>
+
+</div>
+
 `;
 
             });
