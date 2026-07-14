@@ -160,15 +160,18 @@ ${
 parcel.createdAt
 ? (
     parcel.createdAt.toDate
-    ? parcel.createdAt.toDate().toLocaleString()
-    : new Date(parcel.createdAt).toLocaleString()
+    ? 
+  parcel.createdAt.toDate().toLocaleString()
+  
+    : new 
+  Date(parcel.createdAt).toLocaleString()
   )
 : "Not Available"
 }
 </p>
 </div>
 
-
+</div>
 
 <h2>👤 Sender Information</h2>
 
@@ -223,7 +226,7 @@ parcel.createdAt
 
 <div class="info-box">
 <h4>Weight</h4>
-<p>${parcel.parcel.weight || "Not Available"} kg</p>
+<p>${parcel.weight || "Not Available"} kg</p>
 </div>
 
 </div>
