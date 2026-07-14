@@ -90,7 +90,17 @@ progressHTML += "</div>";
 
                     history.forEach((item) => {
                         
-                            timeline += `
+                           let date = "Unknown time";
+
+if (item.time) {
+    if (item.time.toDate) {
+        date = item.time.toDate().toLocaleString();
+    } else {
+        date = new Date(item.time).toLocaleString();
+    }
+}
+                      
+                      timeline += `
 <div class="timeline-item">
 
     <div class="timeline-dot"></div>
@@ -118,28 +128,104 @@ progressHTML += "</div>";
                 }
 
                 result.innerHTML = `
-                    <h3>Parcel Details</h3>
-                    ${progressHTML}
-                    <p><b>Tracking Number:</b> ${parcel.trackingNumber}</p>
-   <p><b>Parcel Type:</b> ${parcel.parcelType || "Not available"}</p>
-             <p><b>Weight:</b> ${parcel.parcelweight || "Not available"} kg</p>
-                    <p><b>Sender:</b> ${parcel.sender}</p>
-                       <p><b>Sender AAddress:</b> ${parcel.senderAddress || "Not available"}</p>
-                    <p><b>Receiver:</b> ${parcel.receiver}</p>
-                       <p><b>Receiver Address:</b> ${parcel.receiverAddress || "Not available"}</p>
-<p><b>Origin:</b> ${parcel.origin || "Not available"}</p>
-<p><b>Destination:</b> ${parcel.destination || "Not available"}</p>
-                                           <p><b>Current Location:</b> ${parcel.location}</p>                                      
-                    <p><b>Estimated Delivery:</> ${parcel.deliveryDate || "Not available"}</p>
-  
-                    <p><b>Status:</b> ${parcel.status}</p>
-                    
-                    <h3>Tracking History</h3>
-  
-                    <div class="timeline">
-                        ${timeline}
-                    </div>
-                `;
+
+<div class="shipment-card">
+
+<h2>📦 Shipment Information</h2>
+
+<div class="info-grid">
+
+<div class="info-box">
+<h4>Tracking Number</h4>
+<p>${parcel.trackingNumber}</p>
+</div>
+
+<div class="info-box">
+<h4>Current Status</h4>
+<p><span class="status">${parcel.status}</span></p>
+</div>
+
+<div class="info-box">
+<h4>Current Location</h4>
+<p>${parcel.location}</p>
+</div>
+
+<div class="info-box">
+<h4>Estimated Delivery</h4>
+<p>${parcel.deliveryDate || "Pending"}</p>
+</div>
+
+</div>
+
+<h2>👤 Sender Information</h2>
+
+<div class="info-grid">
+
+<div class="info-box">
+<h4>Sender</h4>
+<p>${parcel.sender}</p>
+</div>
+
+<div class="info-box">
+<h4>Sender Address</h4>
+<p>${parcel.senderAddress || "Not Available"}</p>
+</div>
+
+</div>
+
+<h2>📍 Receiver Information</h2>
+
+<div class="info-grid">
+
+<div class="info-box">
+<h4>Receiver</h4>
+<p>${parcel.receiver}</p>
+</div>
+
+<div class="info-box">
+<h4>Receiver Address</h4>
+<p>${parcel.receiverAddress || "Not Available"}</p>
+</div>
+
+</div>
+
+<h2>🚚 Shipping Details</h2>
+
+<div class="info-grid">
+
+<div class="info-box">
+<h4>Origin</h4>
+<p>${parcel.origin || "Not Available"}</p>
+</div>
+
+<div class="info-box">
+<h4>Destination</h4>
+<p>${parcel.destination || "Not Available"}</p>
+</div>
+
+<div class="info-box">
+<h4>Parcel Type</h4>
+<p>${parcel.parcelType || "Not Available"}</p>
+</div>
+
+<div class="info-box">
+<h4>Weight</h4>
+<p>${parcel.weight || "Not Available"} kg</p>
+</div>
+
+</div>
+
+${progressHTML}
+
+<h2>Tracking History</h2>
+
+<div class="timeline">
+${timeline}
+</div>
+
+</div>
+
+`;
 
             });
 
