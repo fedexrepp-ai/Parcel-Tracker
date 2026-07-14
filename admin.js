@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const location = document.getElementById("location").value.trim();
 
+      
       const description =
 document.getElementById("description").value.trim();
 
@@ -78,8 +79,10 @@ document.getElementById("description").value.trim();
     {
         status: status,
         location: location,
-        description: description,
-        time: new Date().toISOString()
+        description: 
+          description,
+        time: new 
+          Date().toISOString()
     }
 ],
 
