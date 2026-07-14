@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SwiftParcel Logistics | Admin Login</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f5f7fa;
+}
+
+.login-container{
+    width:90%;
+    max-width:420px;
+    margin:80px auto;
+    background:#fff;
+    padding:35px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+    text-align:center;
+}
+
+.login-logo{
+    width:90px;
+    margin-bottom:15px;
+}
+
+.login-container h2{
+    color:#0D2B5B;
+    margin-bottom:8px;
+}
+
+.login-container p{
+    color:#666;
+    margin-bottom:25px;
+}
+
+.login-container input{
+    width:100%;
+    padding:14px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:16px;
+    box-sizing:border-box;
+}
+
+.login-container button{
+    width:100%;
+    padding:15px;
+    background:#0D2B5B;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.login-container button:hover{
+    background:#163b75;
+}
+
+#error{
+    color:red;
+    margin-top:15px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="login-container">
+
+<img src="logo.png" class="login-logo" alt="SwiftParcel Logistics">
+
+<h2>Administrator Login</h2>
+
+<p>Authorized personnel only.</p>
+
+<input
+type="email"
+id="email"
+placeholder="Admin Email">
+
+<input
+type="password"
+id="password"
+placeholder="Password">
+
+<button id="loginBtn">
+Sign In
+</button>
+
+<p id="error"></p>
+
+</div>
+
+<script type="module" src="login.js"></script>
+
+</body>
+</html>
