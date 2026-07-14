@@ -87,39 +87,37 @@ progressHTML += "</div>";
 
                     const history = [...parcel.history].reverse();
                   
+history.forEach((item) => {
 
-                    history.forEach((item) => {
-                        
-                           let date = "Unknown time";
+    let date = "Unknown time";
 
-if (item.time) {
-    if (item.time.toDate) {
-        date = item.time.toDate().toLocaleString();
-    } else {
-        date = new Date(item.time).toLocaleString();
+    if (item.time) {
+        if (item.time.toDate) {
+            date = item.time.toDate().toLocaleString();
+        } else {
+            date = new Date(item.time).toLocaleString();
+        }
     }
-}
-                      
-                      timeline += `
-<div class="timeline-item">
 
-    <div class="timeline-dot"></div>
+    timeline += `
+        <div class="timeline-item">
 
-    <div class="timeline-content">
+            <div class="timeline-dot"></div>
 
-        <h4>${item.status}</h4>
+            <div class="timeline-content">
 
-        <p>${item.location}</p>
+                <h4>${item.status}</h4>
 
-        <small>${date}</small>
+                <p>${item.location}</p>
 
-    </div>
+                <small>${date}</small>
 
-</div>
-`;
-                      
+            </div>
 
-                    });
+        </div>
+    `;
+
+});
 
                 } else {
 
