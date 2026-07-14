@@ -26,6 +26,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const destination = document.getElementById("destination").value.trim();
 
         const location = document.getElementById("location").value.trim();
+
+      const description =
+document.getElementById("description").value.trim();
+
+      
         const deliveryDate = document.getElementById("deliveryDate").value;
 
         let status = document.getElementById("status").value;
@@ -70,13 +75,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 status,
 
                 history: [
-                    {
-                        status: status,
-                        location: location,
-                        time: new Date().toISOString()
-                    }
-                ],
+    {
+        status: status,
+        location: location,
+        description: description,
+        time: new Date().toISOString()
+    }
+],
 
+              
                 createdAt: serverTimestamp()
 
             });
