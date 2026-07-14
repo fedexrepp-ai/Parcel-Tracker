@@ -110,6 +110,11 @@ history.forEach((item) => {
 
                 <p>${item.location}</p>
 
+<p>
+${item.description || ""}
+</p>
+
+
                 <small>${date}</small>
 
             </div>
