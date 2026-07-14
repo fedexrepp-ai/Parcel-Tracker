@@ -253,3 +253,20 @@ ${timeline}
     }
 
 });
+
+
+function copyTracking(number) {
+
+    navigator.clipboard.writeText(number)
+    .then(() => {
+
+        alert("Tracking number copied: " + number);
+
+    })
+    .catch(() => {
+
+        alert("Unable to copy tracking number.");
+
+    });
+
+}
