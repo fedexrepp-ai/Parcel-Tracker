@@ -157,12 +157,18 @@ history.forEach((item) => {
 <h4>Last Updated</h4>
 <p>
 ${
-parcel.createdAt && parcel.createdAt.toDate
-? parcel.createdAt.toDate().toLocaleString()
+parcel.createdAt
+? (
+    parcel.createdAt.toDate
+    ? parcel.createdAt.toDate().toLocaleString()
+    : new Date(parcel.createdAt).toLocaleString()
+  )
 : "Not Available"
 }
 </p>
 </div>
+
+
 
 <h2>👤 Sender Information</h2>
 
