@@ -208,7 +208,7 @@ history.forEach((item) => {
 
 <div class="info-box">
 <h4>Weight</h4>
-<p>${parcel.weight || "Not Available"} kg</p>
+<p>${parcel.parcel.weight || "Not Available"} kg</p>
 </div>
 
 </div>
