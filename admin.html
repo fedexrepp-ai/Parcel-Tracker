@@ -65,13 +65,63 @@
 
     <section class="admin-panel">
 
-        <h2>Create Shipment</h2>
+<h2>Create / Update Shipment</h2>
 
-        <!-- Paste all your existing input fields here -->
-        <!-- Sender, Receiver, Address, Weight, Status, etc. -->
+<input type="text" id="sender" placeholder="Sender Name">
 
-    </section>
+<input type="text" id="senderAddress" placeholder="Sender Address">
 
+<input type="text" id="receiver" placeholder="Receiver Name">
+
+<input type="text" id="receiverAddress" placeholder="Receiver Address">
+
+<input type="text" id="parcelType" placeholder="Parcel Type">
+
+<input type="text" id="weight" placeholder="Weight (kg)">
+
+<input type="text" id="origin" placeholder="Origin">
+
+<input type="text" id="destination" placeholder="Destination">
+
+<input type="text" id="location" placeholder="Current Location">
+
+<input type="date" id="deliveryDate">
+
+<textarea
+id="description"
+placeholder="Tracking Update Description"
+rows="3"></textarea>
+
+<select id="status">
+    <option>Shipment Created</option>
+    <option>Picked Up</option>
+    <option>In Transit</option>
+    <option>Custom Check</option>
+    <option>Out for Delivery</option>
+    <option>Delivered</option>
+    <option>Other</option>
+</select>
+
+<input
+type="text"
+id="customStatus"
+placeholder="Custom Status (optional)">
+
+<br><br>
+
+<button id="createParcel">
+Create Parcel
+</button>
+
+<button id="updateParcel">
+Update Shipment
+</button>
+
+<div id="message"></div>
+
+</section>
+
+    
     <section class="admin-panel">
 
         <h2>Recent Shipments</h2>
