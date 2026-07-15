@@ -5,58 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parcel Tracker - Admin</title>
     <link rel="stylesheet" href="style.css">
-</head>
+
+
 <body>
+<header class="admin-header">
+
+    <div class="admin-brand">
+        <img src="logo.png" class="logo">
+        <div>
+            <h1>SwiftParcel Logistics</h1>
+            <p>Administration Dashboard</p>
+        </div>
+    </div>
 
     <button id="logoutBtn">Logout</button>
 
-<h1> Parcel Tracker - Admin Dashboard</h1>
+</header>
 
-<input type="text" id="sender" placeholder="Sender Name"><br><br>
+<div class="dashboard">
 
-<input type="text" id="senderAddress" placeholder="Sender Address"><br><br>
+    <div class="stats">
 
-<input type="text" id="receiver" placeholder="Receiver Name"><br><br>
+        <div class="stat-card">
+            <h3>Total Shipments</h3>
+            <h2 id="totalShipments">0</h2>
+        </div>
 
-<input type="text" id="receiverAddress" placeholder="Receiver Address"><br><br>
+        <div class="stat-card">
+            <h3>In Transit</h3>
+            <h2 id="inTransit">0</h2>
+        </div>
 
-<input type="text" id="parcelType" placeholder="Parcel Type"><br><br>
+        <div class="stat-card">
+            <h3>Delivered</h3>
+            <h2 id="delivered">0</h2>
+        </div>
 
-<input type="text" id="weight" placeholder="Weight (kg)"><br><br>
+        <div class="stat-card">
+            <h3>Delayed</h3>
+            <h2 id="delayed">0</h2>
+        </div>
 
-<input type="text" id="origin" placeholder="Origin"><br><br>
+    </div>
 
-<input type="text" id="destination" placeholder="Destination"><br><br>
+    <section class="admin-panel">
 
-<input type="text" id="location" placeholder="Current Location"><br><br>
+        <h2>Create Shipment</h2>
 
-<input type="text" id="location" placeholder="Current Location"><br><br>
+        <!-- Paste all your existing input fields here -->
+        <!-- Sender, Receiver, Address, Weight, Status, etc. -->
 
-<input type="text"
-id="description"
-placeholder="Tracking Update Description"><br><br>
+    </section>
 
-<input type="date" id="deliveryDate"><br><br>
+    <section class="admin-panel">
 
-<select id="status">
-    <option>Shipment Created</option>
-    <option>Picked Up</option>
-    <option>In Transit</option>
-    <option>Custom Check</option>
-    <option>Out for Delivery</option>
-    <option>Delivered</option>
-    <option> Other</option>
-</select>
-<br><br>
-    <input type="text" id="customStatus"placeholder="Enter custom status">
-<br><br>
+        <h2>Recent Shipments</h2>
 
-<button id="createParcel">Create Parcel</button>
+        <div id="shipmentList">
+            Loading shipments...
+        </div>
 
-<div id="message"></div>
+    </section>
 
-<script type="module" src="firebase.js"></script>
+</div>
+
 <script type="module" src="admin.js"></script>
-
 </body>
 </html>
