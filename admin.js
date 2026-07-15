@@ -10,12 +10,14 @@ import {
     query,
     where,
     getDocs,
+    getCountFromServer,
     addDoc,
     updateDoc,
     doc,
     arrayUnion,
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
 
 // Protect admin page
 onAuthStateChanged(auth, (user) => {
@@ -42,6 +44,55 @@ document.addEventListener("DOMContentLoaded", () => {
     logoutBtn.addEventListener("click", async () => {
         await signOut(auth);
         window.location.href = "login.html";
+
+       async function loadDashboardStats() {
+
+    // Total Shipments
+    const totalSnap = await getCountFromServer(
+        collection(db, "parcels")
+    );
+
+    document.getElementById("totalShipments").textContent =
+        totalSnap.data().count;
+
+    // In Transit
+    const transitSnap = await getCountFromServer(
+        query(
+            collection(db, "parcels"),
+            where("status", "==", "In Transit")
+        )
+    );
+
+    document.getElementById("inTransit").textContent =
+        transitSnap.data().count;
+
+    // Delivered
+    const deliveredSnap = await getCountFromServer(
+        query(
+            collection(db, "parcels"),
+            where("status", "==", "Delivered")
+        )
+    );
+
+    document.getElementById("delivered").textContent =
+        deliveredSnap.data().count;
+
+    // Delayed
+    const delayedSnap = await getCountFromServer(
+        query(
+            collection(db, "parcels"),
+            where("status", "==", "Delayed")
+        )
+    );
+
+    document.getElementById("delayed").textContent =
+        delayedSnap.data().count;
+
+}
+
+loadDashboardStats();
+
+        
     });
 
     createButton.addEventListener("click", async () => {
