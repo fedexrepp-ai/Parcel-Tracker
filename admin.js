@@ -1,4 +1,4 @@
-import { auth } from "./firebase.js";
+import { db, auth } from "./firebase.js";
 
 import {
     onAuthStateChanged
@@ -14,7 +14,8 @@ onAuthStateChanged(auth, (user) => {
 
 
 
-import { db } from "./firebase.js";
+
+
 
 import {
     collection,
