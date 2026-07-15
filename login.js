@@ -10,7 +10,7 @@ const loginBtn = document.getElementById("loginBtn");
 const error = document.getElementById("error");
 
 loginBtn.addEventListener("click", async () => {
-
+alert("Login button clicked");
     try {
 
         await signInWithEmailAndPassword(
