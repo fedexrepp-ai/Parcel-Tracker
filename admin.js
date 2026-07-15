@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
     logoutBtn.addEventListener("click", async () => {
         await signOut(auth);
         window.location.href = "login.html";
-
+    });
        async function loadDashboardStats() {
 
     // Total Shipments
@@ -92,8 +92,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 loadDashboardStats();
 
-        
-    });
 
     createButton.addEventListener("click", async () => {
 
