@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "login.html";
     });
        async function loadDashboardStats() {
+           try{
 
     // Total Shipments
     const totalSnap = await getCountFromServer(
@@ -91,14 +92,19 @@ document.addEventListener("DOMContentLoaded", () => {
         delayedSnap.data().count;
 
 }
+     } catch (error) {
+        console.error("Error loading dashboard statistics:", error);
+    }      
 
 loadDashboardStats();
-loadRecentShipments();
+loadRecentShipments();  
+
+
     
 async function loadRecentShipments() {
 
     const shipmentList = document.getElementById("shipmentList");
-
+    {
     try {
 
         const q = query(
