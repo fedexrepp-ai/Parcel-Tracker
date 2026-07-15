@@ -15,7 +15,9 @@ import {
     updateDoc,
     doc,
     arrayUnion,
-    serverTimestamp
+    serverTimestamp,
+    orderBy,
+    limit
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 
@@ -91,8 +93,66 @@ document.addEventListener("DOMContentLoaded", () => {
 }
 
 loadDashboardStats();
+loadRecentShipments();
+    
+async function loadRecentShipments() {
 
+    const shipmentList = document.getElementById("shipmentList");
 
+    try {
+
+        const q = query(
+            collection(db, "parcels"),
+            orderBy("createdAt", "desc"),
+            limit(10)
+        );
+
+        const snapshot = await getDocs(q);
+
+        if (snapshot.empty) {
+            shipmentList.innerHTML = "<p>No shipments found.</p>";
+            return;
+        }
+
+        let html = `
+        <table class="shipment-table">
+            <tr>
+                <th>Tracking</th>
+                <th>Sender</th>
+                <th>Receiver</th>
+                <th>Status</th>
+            </tr>
+        `;
+
+        snapshot.forEach((doc) => {
+
+            const parcel = doc.data();
+
+            html += `
+            <tr>
+                <td>${parcel.trackingNumber}</td>
+                <td>${parcel.sender}</td>
+                <td>${parcel.receiver}</td>
+                <td>${parcel.status}</td>
+            </tr>
+            `;
+
+        });
+
+        html += "</table>";
+
+        shipmentList.innerHTML = html;
+
+    } catch (error) {
+
+        console.error(error);
+        shipmentList.innerHTML = "Unable to load shipments.";
+
+    }
+
+}
+
+    
     createButton.addEventListener("click", async () => {
 
     const sender = document.getElementById("sender").value.trim();
@@ -165,7 +225,9 @@ loadDashboardStats();
         message.innerHTML =
         `<h3>✅ Parcel Created Successfully</h3>
         <p><b>Tracking Number:</b> ${trackingNumber}</p>`;
-
+loadDashboardStats();
+loadRecentShipments();
+        
     } catch (error) {
 
         console.error(error);
@@ -218,11 +280,20 @@ loadDashboardStats();
         document.getElementById("destination").value = parcel.destination || "";
 
         document.getElementById("location").value = parcel.location || "";
-        document.getElementById("deliveryDate").value = parcel.deliveryDate || "";
+document.getElementById("deliveryDate").value = parcel.deliveryDate || "";
 
-        document.getElementById("status").value = parcel.status || "";
+document.getElementById("status").value = parcel.status || "";
 
-        alert("Shipment loaded successfully.");
+// Load the latest tracking description
+if (parcel.history && parcel.history.length > 0) {
+    const latest = parcel.history[parcel.history.length - 1];
+    document.getElementById("description").value = latest.description || "";
+} else {
+    document.getElementById("description").value = "";
+}
+
+alert("Shipment loaded successfully.");
+        
 
     } catch (error) {
 
@@ -279,6 +350,8 @@ loadDashboardStats();
 
         message.innerHTML =
         "<h3>✅ Shipment updated successfully.</h3>";
+      loadDashboardStats();  
+       loadRecentShipments(); 
 
     } catch (error) {
 
