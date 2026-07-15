@@ -1,3 +1,5 @@
+ 
+
 import { db, auth } from "./firebase.js";
 
 import {
@@ -20,7 +22,6 @@ import {
     limit
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
-
 // Protect admin page
 onAuthStateChanged(auth, (user) => {
     if (!user) {
@@ -30,16 +31,12 @@ onAuthStateChanged(auth, (user) => {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Buttons
     const createButton = document.getElementById("createParcel");
     const updateButton = document.getElementById("updateParcel");
     const loadButton = document.getElementById("loadShipment");
     const logoutBtn = document.getElementById("logoutBtn");
-
-    // Message area
     const message = document.getElementById("message");
 
-    // Currently loaded Firestore document
     let loadedParcelId = null;
 
     // Logout
@@ -47,119 +44,99 @@ document.addEventListener("DOMContentLoaded", () => {
         await signOut(auth);
         window.location.href = "login.html";
     });
-       async function loadDashboardStats() {
-           try{
 
-    // Total Shipments
-    const totalSnap = await getCountFromServer(
-        collection(db, "parcels")
-    );
+    // Dashboard Statistics
+    async function loadDashboardStats() {
+        try {
 
-    document.getElementById("totalShipments").textContent =
-        totalSnap.data().count;
+            const totalSnap = await getCountFromServer(collection(db, "parcels"));
+            document.getElementById("totalShipments").textContent =
+                totalSnap.data().count;
 
-    // In Transit
-    const transitSnap = await getCountFromServer(
-        query(
-            collection(db, "parcels"),
-            where("status", "==", "In Transit")
-        )
-    );
+            const transitSnap = await getCountFromServer(
+                query(collection(db, "parcels"),
+                where("status", "==", "In Transit"))
+            );
+            document.getElementById("inTransit").textContent =
+                transitSnap.data().count;
 
-    document.getElementById("inTransit").textContent =
-        transitSnap.data().count;
+            const deliveredSnap = await getCountFromServer(
+                query(collection(db, "parcels"),
+                where("status", "==", "Delivered"))
+            );
+            document.getElementById("delivered").textContent =
+                deliveredSnap.data().count;
 
-    // Delivered
-    const deliveredSnap = await getCountFromServer(
-        query(
-            collection(db, "parcels"),
-            where("status", "==", "Delivered")
-        )
-    );
+            const delayedSnap = await getCountFromServer(
+                query(collection(db, "parcels"),
+                where("status", "==", "Delayed"))
+            );
+            document.getElementById("delayed").textContent =
+                delayedSnap.data().count;
 
-    document.getElementById("delivered").textContent =
-        deliveredSnap.data().count;
-
-    // Delayed
-    const delayedSnap = await getCountFromServer(
-        query(
-            collection(db, "parcels"),
-            where("status", "==", "Delayed")
-        )
-    );
-
-    document.getElementById("delayed").textContent =
-        delayedSnap.data().count;
-
-}
-     } catch (error) {
-        console.error("Error loading dashboard statistics:", error);
-    }      
-
-loadDashboardStats();
-loadRecentShipments();  
-
-
-    
-async function loadRecentShipments() {
-
-    const shipmentList = document.getElementById("shipmentList");
-    {
-    try {
-
-        const q = query(
-            collection(db, "parcels"),
-            orderBy("createdAt", "desc"),
-            limit(10)
-        );
-
-        const snapshot = await getDocs(q);
-
-        if (snapshot.empty) {
-            shipmentList.innerHTML = "<p>No shipments found.</p>";
-            return;
+        } catch (error) {
+            console.error("Dashboard Error:", error);
         }
+    }
 
-        let html = `
-        <table class="shipment-table">
-            <tr>
-                <th>Tracking</th>
-                <th>Sender</th>
-                <th>Receiver</th>
-                <th>Status</th>
-            </tr>
-        `;
+    // Recent Shipments
+    async function loadRecentShipments() {
 
-        snapshot.forEach((doc) => {
+        const shipmentList = document.getElementById("shipmentList");
 
-            const parcel = doc.data();
+        try {
 
-            html += `
-            <tr>
-                <td>${parcel.trackingNumber}</td>
-                <td>${parcel.sender}</td>
-                <td>${parcel.receiver}</td>
-                <td>${parcel.status}</td>
-            </tr>
+            const q = query(
+                collection(db, "parcels"),
+                orderBy("createdAt", "desc"),
+                limit(10)
+            );
+
+            const snapshot = await getDocs(q);
+
+            if (snapshot.empty) {
+                shipmentList.innerHTML = "<p>No shipments found.</p>";
+                return;
+            }
+
+            let html = `
+                <table class="shipment-table">
+                    <tr>
+                        <th>Tracking</th>
+                        <th>Sender</th>
+                        <th>Receiver</th>
+                        <th>Status</th>
+                    </tr>
             `;
 
-        });
+            snapshot.forEach((docSnap) => {
+                const parcel = docSnap.data();
 
-        html += "</table>";
+                html += `
+                    <tr>
+                        <td>${parcel.trackingNumber}</td>
+                        <td>${parcel.sender}</td>
+                        <td>${parcel.receiver}</td>
+                        <td>${parcel.status}</td>
+                    </tr>
+                `;
+            });
 
-        shipmentList.innerHTML = html;
+            html += "</table>";
+
+            shipmentList.innerHTML = html;
+
+        } catch (error) {
+            console.error("Shipment List Error:", error);
+            shipmentList.innerHTML = "<p>Unable to load shipments.</p>";
+        }
     }
-    } catch (error) {
 
-        console.error(error);
-        shipmentList.innerHTML = "Unable to load shipments.";
+    // Load dashboard when page opens
+    loadDashboardStats();
+    loadRecentShipments();
 
-    }
-
-}
-
-    
-    createButton.addEventListener("click", async () => {
+createButton.addEventListener("click", async () => {
 
     const sender = document.getElementById("sender").value.trim();
     const senderAddress = document.getElementById("senderAddress").value.trim();
@@ -174,7 +151,6 @@ async function loadRecentShipments() {
     const destination = document.getElementById("destination").value.trim();
 
     const location = document.getElementById("location").value.trim();
-
     const description = document.getElementById("description").value.trim();
 
     const deliveryDate = document.getElementById("deliveryDate").value;
@@ -182,12 +158,12 @@ async function loadRecentShipments() {
     let status = document.getElementById("status").value;
     const customStatus = document.getElementById("customStatus").value.trim();
 
-    if (status === "Other" && customStatus) {
+    if (status === "Other" && customStatus !== "") {
         status = customStatus;
     }
 
     if (!sender || !receiver || !location) {
-        message.innerHTML = "Please fill in all required fields.";
+        message.innerHTML = "<p>Please fill in Sender, Receiver and Location.</p>";
         return;
     }
 
@@ -217,27 +193,33 @@ async function loadRecentShipments() {
 
             status,
 
-            history: [{
-                status: status,
-                location: location,
-                description: description,
-                time: new Date().toISOString()
-            }],
+            history: [
+                {
+                    status,
+                    location,
+                    description,
+                    time: new Date().toISOString()
+                }
+            ],
 
             createdAt: serverTimestamp()
 
         });
 
-        message.innerHTML =
-        `<h3>✅ Parcel Created Successfully</h3>
-        <p><b>Tracking Number:</b> ${trackingNumber}</p>`;
-loadDashboardStats();
-loadRecentShipments();
-        
+        message.innerHTML = `
+            <h3>✅ Shipment Created Successfully</h3>
+            <p><strong>Tracking Number:</strong> ${trackingNumber}</p>
+        `;
+
+        loadDashboardStats();
+        loadRecentShipments();
+
     } catch (error) {
 
         console.error(error);
-        message.innerHTML = "Error creating parcel: " + error.message;
+
+        message.innerHTML =
+            "❌ Error creating shipment: " + error.message;
 
     }
 
@@ -268,7 +250,6 @@ loadRecentShipments();
         }
 
         const docSnap = snapshot.docs[0];
-
         loadedParcelId = docSnap.id;
 
         const parcel = docSnap.data();
@@ -286,30 +267,30 @@ loadRecentShipments();
         document.getElementById("destination").value = parcel.destination || "";
 
         document.getElementById("location").value = parcel.location || "";
-document.getElementById("deliveryDate").value = parcel.deliveryDate || "";
+        document.getElementById("deliveryDate").value = parcel.deliveryDate || "";
 
-document.getElementById("status").value = parcel.status || "";
+        document.getElementById("status").value = parcel.status || "";
 
-// Load the latest tracking description
-if (parcel.history && parcel.history.length > 0) {
-    const latest = parcel.history[parcel.history.length - 1];
-    document.getElementById("description").value = latest.description || "";
-} else {
-    document.getElementById("description").value = "";
-}
+        if (parcel.history && parcel.history.length > 0) {
+            const latest = parcel.history[parcel.history.length - 1];
+            document.getElementById("description").value =
+                latest.description || "";
+        } else {
+            document.getElementById("description").value = "";
+        }
 
-alert("Shipment loaded successfully.");
-        
+        document.getElementById("customStatus").value = "";
+
+        alert("✅ Shipment loaded successfully.");
 
     } catch (error) {
 
         console.error(error);
-        alert("Error loading shipment.");
+        alert("Error loading shipment: " + error.message);
 
     }
 
-});
-
+});  
     updateButton.addEventListener("click", async () => {
 
     if (!loadedParcelId) {
@@ -320,7 +301,7 @@ alert("Shipment loaded successfully.");
     let status = document.getElementById("status").value;
     const customStatus = document.getElementById("customStatus").value.trim();
 
-    if (status === "Other" && customStatus) {
+    if (status === "Other" && customStatus !== "") {
         status = customStatus;
     }
 
@@ -354,21 +335,23 @@ alert("Shipment loaded successfully.");
 
         });
 
-        message.innerHTML =
-        "<h3>✅ Shipment updated successfully.</h3>";
-      loadDashboardStats();  
-       loadRecentShipments(); 
+        message.innerHTML = `
+            <h3>✅ Shipment Updated Successfully</h3>
+        `;
+
+        loadDashboardStats();
+        loadRecentShipments();
 
     } catch (error) {
 
         console.error(error);
+
         message.innerHTML =
-        "Update failed: " + error.message;
+            "❌ Update failed: " + error.message;
 
     }
 
 });
 
-    
-
+// Close the DOMContentLoaded listener
 });
