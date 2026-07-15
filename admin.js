@@ -148,7 +148,7 @@ async function loadRecentShipments() {
         html += "</table>";
 
         shipmentList.innerHTML = html;
-
+    }
     } catch (error) {
 
         console.error(error);
