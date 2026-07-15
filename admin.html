@@ -1,69 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parcel Tracker - Admin</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SwiftParcel Logistics - Admin Dashboard</title>
 
+<link rel="stylesheet" href="style.css">
+
+</head>
 
 <body>
+
 <header class="admin-header">
 
-    <div class="admin-brand">
-        <img src="logo.png" class="logo">
-        <div>
-            <h1>SwiftParcel Logistics</h1>
-            <p>Administration Dashboard</p>
-        </div>
-    </div>
+<div class="admin-brand">
 
-    <button id="logoutBtn">Logout</button>
+<img src="logo.png" class="logo">
+
+<div>
+
+<h1>SwiftParcel Logistics</h1>
+
+<p>Administration Dashboard</p>
+
+</div>
+
+</div>
+
+<button id="logoutBtn">Logout</button>
 
 </header>
 
 <div class="dashboard">
 
-    <div class="stats">
+<div class="stats">
 
-        <div class="stat-card">
-            <h3>Total Shipments</h3>
-            <h2 id="totalShipments">0</h2>
-        </div>
+<div class="stat-card">
+<h3>Total Shipments</h3>
+<h2 id="totalShipments">0</h2>
+</div>
 
-        <div class="stat-card">
-            <h3>In Transit</h3>
-            <h2 id="inTransit">0</h2>
-        </div>
+<div class="stat-card">
+<h3>In Transit</h3>
+<h2 id="inTransit">0</h2>
+</div>
 
-        <div class="stat-card">
-            <h3>Delivered</h3>
-            <h2 id="delivered">0</h2>
-        </div>
+<div class="stat-card">
+<h3>Delivered</h3>
+<h2 id="delivered">0</h2>
+</div>
 
-        <div class="stat-card">
-            <h3>Delayed</h3>
-            <h2 id="delayed">0</h2>
-        </div>
+<div class="stat-card">
+<h3>Delayed</h3>
+<h2 id="delayed">0</h2>
+</div>
 
-    </div>
+</div>
 
-   <section class="admin-panel">
+<section class="admin-panel">
 
-    <h2>🔍 Search Shipment</h2>
+<h2>🔍 Search Shipment</h2>
 
-    <input
-        type="text"
-        id="searchTracking"
-        placeholder="Enter Tracking Number">
+<input
+type="text"
+id="searchTracking"
+placeholder="Tracking Number">
 
-    <button id="loadShipment">
-        Load Shipment
-    </button>
+<button id="loadShipment">
+Load Shipment
+</button>
 
-</section> 
+</section>
 
-    <section class="admin-panel">
+<section class="admin-panel">
 
 <h2>Create / Update Shipment</h2>
 
@@ -85,32 +94,36 @@
 
 <input type="text" id="location" placeholder="Current Location">
 
-<input type="date" id="deliveryDate">
+<input
+type="date"
+id="deliveryDate">
 
 <textarea
 id="description"
 placeholder="Tracking Update Description"
-rows="3"></textarea>
+rows="4"></textarea>
 
 <select id="status">
-    <option>Shipment Created</option>
-    <option>Picked Up</option>
-    <option>In Transit</option>
-    <option>Custom Check</option>
-    <option>Out for Delivery</option>
-    <option>Delivered</option>
-    <option>Other</option>
+
+<option>Shipment Created</option>
+<option>Picked Up</option>
+<option>In Transit</option>
+<option>Custom Check</option>
+<option>Out for Delivery</option>
+<option>Delivered</option>
+<option>Other</option>
+
 </select>
 
 <input
 type="text"
 id="customStatus"
-placeholder="Custom Status (optional)">
+placeholder="Custom Status">
 
 <br><br>
 
 <button id="createParcel">
-Create Parcel
+Create Shipment
 </button>
 
 <button id="updateParcel">
@@ -121,19 +134,21 @@ Update Shipment
 
 </section>
 
-    
-    <section class="admin-panel">
+<section class="admin-panel">
 
-        <h2>Recent Shipments</h2>
+<h2>Recent Shipments</h2>
 
-        <div id="shipmentList">
-            Loading shipments...
-        </div>
+<div id="shipmentList">
 
-    </section>
+Loading shipments...
+
+</div>
+
+</section>
 
 </div>
 
 <script type="module" src="admin.js"></script>
+
 </body>
 </html>
