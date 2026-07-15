@@ -268,11 +268,14 @@ ${timeline}
 
         } catch (error) {
 
-            console.error(error);
-            result.innerHTML = "Error loading parcel.";
+    console.error(error);
 
-        }
+    result.innerHTML = `
+        <h3>Error Loading Parcel</h3>
+        <p>${error.message}</p>
+    `;
 
+}
     }
 
 });
