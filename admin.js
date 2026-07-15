@@ -17,10 +17,14 @@ onAuthStateChanged(auth, (user) => {
 import { db } from "./firebase.js";
 
 import {
-  collection,
-  addDoc,
-  serverTimestamp
+    collection,
+    query,
+    where,
+    getDocs,
+    addDoc,
+    serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -142,5 +146,47 @@ logoutBtn.addEventListener("click", async () => {
     await signOut(auth);
 
     window.location.href = "login.html";
+
+});
+
+
+const loadBtn = document.getElementById("loadShipment");
+
+loadBtn.addEventListener("click", async () => {
+
+    const tracking = document
+        .getElementById("searchTracking")
+        .value
+        .trim();
+
+    if (!tracking) {
+        alert("Enter a tracking number.");
+        return;
+    }
+
+    const q = query(
+        collection(db, "parcels"),
+        where("trackingNumber", "==", tracking)
+    );
+
+    const snapshot = await getDocs(q);
+
+    if (snapshot.empty) {
+        alert("Shipment not found.");
+        return;
+    }
+
+    const parcel = snapshot.docs[0].data();
+
+    document.getElementById("sender").value = parcel.sender || "";
+    document.getElementById("receiver").value = parcel.receiver || "";
+    document.getElementById("location").value = parcel.location || "";
+    document.getElementById("status").value = parcel.status || "";
+    document.getElementById("origin").value = parcel.origin || "";
+    document.getElementById("destination").value = parcel.destination || "";
+    document.getElementById("weight").value = parcel.weight || "";
+    document.getElementById("parcelType").value = parcel.parcelType || "";
+
+    alert("Shipment loaded successfully.");
 
 });
