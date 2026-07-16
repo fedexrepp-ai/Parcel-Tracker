@@ -1,13 +1,12 @@
 :root{
-    --primary: #0D2B5B;      /* Navy Blue */
-    --secondary: #D4A017;    /* Gold */
-    --background: #F7F8FA;   /* Light Gray */
-    --white: #FFFFFF;
-    --text: #2F3A45;
-    --border: #E5E7EB;
+    --primary:#0D2B5B;
+    --secondary:#D4A017;
+    --background:#F4F6F9;
+    --white:#FFFFFF;
+    --text:#2F3A45;
+    --border:#E5E7EB;
+    --shadow:0 8px 25px rgba(0,0,0,.12);
 }
-
-
 
 body {
     font-family: Arial, sans-serif;
@@ -210,46 +209,102 @@ body{
 /* ---------- HEADER ---------- */
 
 .header{
-    background:#0D2B5B;
-    color:white;
+    background:var(--primary);
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:var(--shadow);
+}
+
+.header-container{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 30px;
+    flex-wrap:wrap;
+}
+
+.brand{
     display:flex;
     align-items:center;
-    gap:20px;
-    padding:20px 40px;
+    gap:18px;
 }
 
 .logo{
-    width:80px;
-    height:80px;
-    object-fit:contain;
+    width:90px;
+    height:auto;
 }
 
 .company-info h1{
+    color:white;
     margin:0;
-    font-size:32px;
+    font-size:30px;
 }
 
 .company-info p{
-    margin-top:5px;
     color:#ddd;
+    margin-top:5px;
+    font-size:15px;
 }
+
+
+/* Navigation */
+.navbar{
+    display:flex;
+    gap:30px;
+}
+
+.navbar a{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.navbar a:hover{
+    color:var(--secondary);
+}
+
 
 /* ---------- HERO ---------- */
 
 .hero{
+    min-height:520px;
+
+    background:
+    linear-gradient(rgba(13,43,91,.75),
+    rgba(13,43,91,.75)),
+    url("hero.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
     text-align:center;
-    padding:50px 20px;
+    padding:40px;
+}
+
+.hero-overlay{
+    max-width:800px;
 }
 
 .hero h2{
-    font-size:36px;
-    margin-bottom:10px;
+    color:white;
+    font-size:48px;
+    margin-bottom:20px;
 }
 
 .hero p{
-    color:#666;
-    margin-bottom:30px;
+    color:white;
+    font-size:20px;
+    margin-bottom:35px;
 }
+
+
 
 /* ---------- SEARCH ---------- */
 
@@ -261,27 +316,28 @@ body{
 }
 
 .search-box input{
-    width:350px;
-    max-width:90%;
-    padding:15px;
-    border:1px solid #ccc;
+    width:420px;
+    max-width:100%;
+    padding:18px;
+    border:none;
     border-radius:8px;
     font-size:16px;
 }
 
 .search-box button{
-    background:#F5A623;
+    background:var(--secondary);
     color:white;
     border:none;
-    padding:15px 30px;
+    padding:18px 30px;
     border-radius:8px;
     cursor:pointer;
     font-size:16px;
     font-weight:bold;
+    transition:.3s;
 }
 
 .search-box button:hover{
-    background:#d98f11;
+    transform:translateY(-2px);
 }
 
 /* ---------- RESULTS ---------- */
