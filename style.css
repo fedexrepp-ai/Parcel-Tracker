@@ -355,12 +355,8 @@ body{
 /* ---------- TRACKING CARD ---------- */
 
 .search-card{
-    background:var(--white);
-    padding:30px;
-    border-radius:15px;
-    max-width:700px;
-    margin:auto;
-    box-shadow:0 10px 30px rgba(0,0,0,.2);
+    background:rgba(255,255,255,0.95);
+    backdrop-filter:blur(10px);
 }
 
 
@@ -519,26 +515,6 @@ footer p{
 
 .navbar a:hover{
     color:var(--secondary);
-}
-
-
-/* HERO */
-
-.hero{
-    text-align:center;
-    padding:60px 20px;
-    background:var(--background);
-}
-
-.hero h2{
-    color:var(--primary);
-    font-size:38px;
-    margin-bottom:15px;
-}
-
-.hero p{
-    color:var(--text);
-    font-size:18px;
 }
 
 
