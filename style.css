@@ -318,11 +318,13 @@ body{
         url("hero.jpg") center center/cover no-repeat;
     min-height:550px;
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
     text-align:center;
     padding:60px 20px;
 }
+
+
 
 .hero-overlay{
     width:100%;
