@@ -228,13 +228,15 @@ body{
 
 
 ./* ---------- HEADER ---------- */
+/* ---------- HEADER ---------- */
 
 .header{
-    background:var(--primary);
+    background:var(--white);
+    border-bottom:1px solid var(--border);
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
     position:sticky;
     top:0;
     z-index:1000;
-    box-shadow:var(--shadow);
     width:100%;
 }
 
@@ -245,7 +247,7 @@ body{
     justify-content:space-between;
     align-items:center;
     padding:18px 30px;
-    flex-wrap:wrap;
+    gap:30px;
 }
 
 .brand{
@@ -254,13 +256,15 @@ body{
     gap:18px;
 }
 
+
 .logo{
-    width:90px;
+    width:75px;
     height:auto;
     display:block;
 }
 
-.company-info{
+
+..company-info{
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -268,20 +272,22 @@ body{
 
 .company-info h1{
     margin:0;
+    color:var(--primary);
     font-size:30px;
     font-weight:700;
-    color:var(--white) !important;
     line-height:1.2;
 }
 
 .company-info p{
-    margin:5px 0 0;
-    color:#dddddd;
-    font-size:15px;
+    margin:4px 0 0;
+    color:var(--text-light);
+    font-size:14px;
 }
+
 
 /* ---------- NAVIGATION ---------- */
 
+.navbar{
 .navbar{
     display:flex;
     align-items:center;
@@ -289,35 +295,18 @@ body{
 }
 
 .navbar a{
-    color:var(--white);
+    color:var(--primary);
     text-decoration:none;
-    font-size:16px;
     font-weight:600;
-    padding:8px 0;
-    position:relative;
+    font-size:16px;
+ 
     transition:var(--transition);
 }
 
 .navbar a:hover{
     color:var(--secondary);
 }
-
-.navbar a::after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-4px;
-    width:0;
-    height:2px;
-    background:var(--secondary);
-    transition:var(--transition);
-}
-
-.navbar a:hover::after{
-    width:100%;
-}
-
-
+    
 
 /* ---------- HERO ---------- */
 
