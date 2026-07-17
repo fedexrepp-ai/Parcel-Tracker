@@ -922,10 +922,9 @@ footer p{
 .icon-nav small{
     font-weight:bold;
 }
-/* HERO RIGHT SIDE ALIGN */
+/* ================= HERO LEFT SIDE ================= */
 
 .tracking-hero{
-
     min-height:650px;
 
     background:
@@ -935,41 +934,29 @@ footer p{
     ),
     url("hero.png") center/cover no-repeat;
 
-
     display:flex;
-
-    justify-content:flex-end;
-
+    justify-content:flex-start;
     align-items:center;
 
-    padding-right:8%;
+    padding-left:8%;
 }
 
 
 .hero-content{
-
     width:450px;
-
     text-align:left;
-
 }
 
 
-/* Worldwide + Parcel Tracking */
-
 .hero-content h1{
-
     font-size:60px;
-
     line-height:1.1;
-
     margin-bottom:25px;
-
 }
 
 
 .white-text{
-    color:white;
+    color:#FFFFFF;
 }
 
 
@@ -979,53 +966,35 @@ footer p{
 
 
 .hero-content p{
-
-    color:white;
-
+    color:#FFFFFF;
     font-size:20px;
-
     margin-bottom:35px;
-
 }
 
 
-/* Search */
-
 .tracking-box{
-
     display:flex;
-
     width:100%;
-
-    background:white;
-
+    background:#FFFFFF;
     border-radius:12px;
-
     overflow:hidden;
-
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
 }
 
 
 .tracking-box input{
-
     flex:1;
-
     padding:18px;
-
     border:none;
-
 }
 
 
 .tracking-box button{
-
     background:#D4A017;
-
-    color:white;
-
+    color:#FFFFFF;
     padding:18px 30px;
-
     border:none;
-
+    font-weight:bold;
 }
+
 
