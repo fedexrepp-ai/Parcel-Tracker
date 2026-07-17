@@ -717,7 +717,7 @@ footer p{
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    padding-bottom: 80px;
+    padding-bottom: 180px;
 }
 
 .hero-content {
@@ -758,7 +758,7 @@ footer p{
 
     .tracking-box input,
     .tracking-box button {
-        width: 100%;
+        width: 120%;
     }
 
 }
