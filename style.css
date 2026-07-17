@@ -31,13 +31,14 @@ body{
 }
 
 .container{
-    width:90%;
-    max-width:1200px;
-    margin:40px auto;
-    background:var(--white);
-    padding:30px;
-    border-radius:var(--radius);
-    box-shadow:var(--shadow);
+    width:85%;
+    max-width:1000px;
+    margin:25px auto;
+    padding:20px;
+
+    background:#FFFFFF;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
 
 /* Global H1 Style */
@@ -259,10 +260,20 @@ header{
 /* ================= LARGE LOGO ================= */
 
 .logo{
-    width:900px;
-    max-width:95%;
-    height:auto;
+    width:420px;
+    height:150px;
+    object-fit:contain;
+
+    display:block;
+    margin:0 auto;
+
+    background:none;
+    border:none;
+    box-shadow:none;
+    filter:none;
+    padding:0;
 }
+
 /* ================= NAVIGATION ================= */
 
 .nav-links{
