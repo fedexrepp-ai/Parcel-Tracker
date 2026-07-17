@@ -535,16 +535,46 @@ header{
 
 /* ---------- FOOTER ---------- */
 
+/* ================= FOOTER ================= */
+
 footer{
+
     margin-top:60px;
-    background:#0D2B5B;
-    color:white;
+
+    background:#F5F6F8;
+
+    color:#2F3A45;
+
     text-align:center;
-    padding:25px;
+
+    padding:30px 20px;
+
+    border-top:2px solid #D4A017;
+
 }
 
 footer p{
+
     margin:8px 0;
+
+    color:#6B7280;
+
+}
+
+footer a{
+
+    color:#0D2B5B;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+footer a:hover{
+
+    color:#D4A017;
+
 }
 
 
