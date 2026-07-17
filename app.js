@@ -31,22 +31,31 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         result.innerHTML = "Searching...";
-// Create the map
+
+      // Remove previous map if it exists
+const mapContainer = document.getElementById("shipmentMap");
+
+if (mapContainer._leaflet_id) {
+    mapContainer._leaflet_id = null;
+    mapContainer.innerHTML = "";
+}
+
+// Create map
 const map = L.map("shipmentMap").setView([51.5074, -0.1278], 5);
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "&copy; OpenStreetMap contributors"
 }).addTo(map);
 
-// Add a marker
 L.marker([51.5074, -0.1278])
     .addTo(map)
     .bindPopup(parcel.location)
     .openPopup();
 
-
       
-        try {
+       
+      
+      try {
 
             const q = query(
                 collection(db, "parcels"),
