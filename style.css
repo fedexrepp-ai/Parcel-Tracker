@@ -712,11 +712,15 @@ footer p{
     background:#b71c1c;
 }
 
-/* Tracking box size and position */
+/* Tracking box position */
+.hero {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 80px;
+}
+
 .hero-content {
-    position: absolute;
-    bottom: 50px;
-    left: 0;
     width: 100%;
 }
 
@@ -724,9 +728,9 @@ footer p{
     display: flex;
     align-items: center;
     gap: 10px;
-    width: 75%;
-    max-width: 750px;
-    margin: auto;
+    width: 70%;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 .tracking-box input {
@@ -743,8 +747,8 @@ footer p{
 /* Mobile */
 @media (max-width:768px){
 
-    .hero-content {
-        bottom: 35px;
+    .hero {
+        padding-bottom: 50px;
     }
 
     .tracking-box {
@@ -758,7 +762,5 @@ footer p{
     }
 
 }
-
-
 
     
