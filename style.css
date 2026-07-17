@@ -328,6 +328,44 @@ header{
 
 }
 
+/* Navigation Hover Effect */
+
+.nav-links a{
+
+    transition:all .3s ease;
+
+}
+
+.nav-links a:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.20);
+
+}
+
+/* Active Page */
+
+.nav-links a.active i{
+
+    background:#D4A017;
+
+    color:#FFFFFF;
+
+    border:2px solid #0D2B5B;
+
+}
+
+.nav-links a.active span{
+
+    color:#0D2B5B;
+
+    font-weight:800;
+
+}
+
+
+
 /* HERO LEFT ALIGN */
 .tracking-hero{
 
