@@ -922,10 +922,7 @@ footer p{
 .icon-nav small{
     font-weight:bold;
 }
-
-
-
-/* ================= HERO RIGHT ALIGN ================= */
+/* HERO RIGHT SIDE ALIGN */
 
 .tracking-hero{
 
@@ -933,8 +930,8 @@ footer p{
 
     background:
     linear-gradient(
-        rgba(13,43,91,0.45),
-        rgba(13,43,91,0.45)
+        rgba(13,43,91,.45),
+        rgba(13,43,91,.45)
     ),
     url("hero.png") center/cover no-repeat;
 
@@ -944,7 +941,6 @@ footer p{
     justify-content:flex-end;
 
     align-items:center;
-
 
     padding-right:8%;
 }
@@ -959,7 +955,7 @@ footer p{
 }
 
 
-/* TITLE */
+/* Worldwide + Parcel Tracking */
 
 .hero-content h1{
 
@@ -973,20 +969,14 @@ footer p{
 
 
 .white-text{
-
     color:white;
-
 }
 
 
 .gold-text{
-
     color:#D4A017;
-
 }
 
-
-/* DESCRIPTION */
 
 .hero-content p{
 
@@ -994,14 +984,12 @@ footer p{
 
     font-size:20px;
 
-    line-height:1.6;
-
     margin-bottom:35px;
 
 }
 
 
-/* SEARCH BOX */
+/* Search */
 
 .tracking-box{
 
@@ -1015,9 +1003,6 @@ footer p{
 
     overflow:hidden;
 
-    box-shadow:
-    0 15px 35px rgba(0,0,0,.25);
-
 }
 
 
@@ -1025,18 +1010,9 @@ footer p{
 
     flex:1;
 
-    border:none;
-
     padding:18px;
 
-    font-size:16px;
-
-}
-
-
-.tracking-box input:focus{
-
-    outline:none;
+    border:none;
 
 }
 
@@ -1047,64 +1023,9 @@ footer p{
 
     color:white;
 
-    border:none;
-
     padding:18px 30px;
 
-    font-weight:bold;
-
-    cursor:pointer;
+    border:none;
 
 }
-
-
-/* MOBILE */
-
-@media(max-width:768px){
-.tracking-hero{
-
-    min-height:650px;
-
-    background:
-    linear-gradient(
-        rgba(13,43,91,0.45),
-        rgba(13,43,91,0.45)
-    ),
-    url("hero.png") center/cover no-repeat;
-
-
-    display:flex;
-
-    justify-content:flex-start;
-
-    align-items:center;
-
-
-    padding-left:8%;
-}
-
-
-.hero-content{
-
-    width:450px;
-
-    text-align:left;
-
-}
-
-    .tracking-box{
-
-        flex-direction:column;
-
-    }
-
-
-    .tracking-box button{
-
-        width:100%;
-
-    }
-
-}
-
 
