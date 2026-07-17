@@ -1,151 +1,16 @@
 /* =====================================================
-   SWIFTPARCEL LOGISTICS
-   PROFESSIONAL DESIGN SYSTEM
-===================================================== */
-
-:root{
-
-    /* Brand Colors */
-    --primary:#0D2B5B;
-    --secondary:#D4A017;
-
-    /* Neutrals */
-    --background:#F5F7FA;
-    --surface:#FFFFFF;
-    --text:#2F3A45;
-    --text-light:#6B7280;
-    --border:#E5E7EB;
-
-    /* Effects */
-    --radius:14px;
-    --shadow:0 10px 30px rgba(0,0,0,.08);
-    --transition:.3s ease;
-
-}
-
-/* RESET */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-/* BODY */
-
-body{
-
-    font-family:Arial, Helvetica, sans-serif;
-
-    background:var(--background);
-
-    color:var(--text);
-
-    overflow-x:hidden;
-
-    line-height:1.6;
-
-}
-
-/* GLOBAL CONTAINER */
-
-.container{
-
-    width:90%;
-
-    max-width:1200px;
-
-    margin:auto;
-
-}
-
-/* HEADINGS */
-
-h1,h2,h3,h4{
-
-    color:var(--primary);
-
-    font-weight:700;
-
-}
-
-p{
-
-    color:var(--text-light);
-
-}
-
-/* INPUT */
-
-input{
-
-    width:100%;
-
-    padding:16px 18px;
-
-    border:1px solid var(--border);
-
-    border-radius:10px;
-
-    font-size:16px;
-
-    transition:var(--transition);
-
-}
-
-input:focus{
-
-    outline:none;
-
-    border-color:var(--secondary);
-
-    box-shadow:0 0 0 3px rgba(212,160,23,.18);
-
-}
-
-/* BUTTON */
-
-button{
-
-    background:var(--secondary);
-
-    color:#FFFFFF;
-
-    border:none;
-
-    padding:16px 30px;
-
-    border-radius:10px;
-
-    font-size:16px;
-
-    font-weight:700;
-
-    cursor:pointer;
-
-    transition:var(--transition);
-
-}
-
-button:hover{
-
-    transform:translateY(-2px);
-
-    background:#BF8E12;
-
-}
-
-/* =====================================================
-   STEP 2 — PROFESSIONAL HEADER
+   HEADER
 ===================================================== */
 
 header{
 
     position:sticky;
+
     top:0;
-    z-index:1000;
 
     width:100%;
+
+    z-index:1000;
 
     background:#F3F4F6;
 
@@ -155,38 +20,43 @@ header{
 
 }
 
-/* HEADER CONTAINER */
+/* Header Container */
 
 .header-container{
 
     max-width:1200px;
+
     width:92%;
 
     margin:auto;
 
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
 
-    padding:8px 0 10px;
+    padding:10px 0;
 
 }
 
-/* LARGE LOGO */
+/* Logo */
 
 .logo{
 
-    width:380px;
+    width:360px;
+
     max-width:90%;
+
     height:auto;
 
     display:block;
 
-    margin:0 auto 8px;
+    margin-bottom:10px;
 
 }
 
-/* NAVIGATION */
+/* Navigation */
 
 .nav-links{
 
@@ -196,13 +66,13 @@ header{
 
     align-items:center;
 
-    gap:14px;
+    gap:15px;
 
     flex-wrap:wrap;
 
 }
 
-/* NAVIGATION CARD */
+/* Navigation Card */
 
 .nav-links a{
 
@@ -214,8 +84,6 @@ header{
 
     border-radius:14px;
 
-    text-decoration:none;
-
     display:flex;
 
     flex-direction:column;
@@ -223,6 +91,8 @@ header{
     justify-content:center;
 
     align-items:center;
+
+    text-decoration:none;
 
     color:#0D2B5B;
 
@@ -234,7 +104,7 @@ header{
 
 }
 
-/* ICON */
+/* Icon */
 
 .nav-links i{
 
@@ -246,7 +116,7 @@ header{
 
     color:#FFFFFF;
 
-    border:1.5px solid #D4A017;
+    border:2px solid #D4A017;
 
     border-radius:10px;
 
@@ -262,7 +132,7 @@ header{
 
 }
 
-/* TEXT */
+/* Label */
 
 .nav-links span{
 
@@ -270,7 +140,7 @@ header{
 
 }
 
-/* HOVER */
+/* Hover */
 
 .nav-links a:hover{
 
@@ -288,13 +158,13 @@ header{
 
 }
 
-/* MOBILE */
+/* Mobile */
 
-@media(max-width:768px){
+@media (max-width:768px){
 
     .logo{
 
-        width:250px;
+        width:240px;
 
     }
 
@@ -306,242 +176,10 @@ header{
 
     .nav-links a{
 
-        width:82px;
+        width:80px;
 
-        height:74px;
+        height:72px;
 
     }
 
 }
-
-/* =====================================================
-   STEP 3 — PREMIUM HERO SECTION
-===================================================== */
-
-.tracking-hero{
-
-    min-height:680px;
-
-    background:
-    linear-gradient(
-        rgba(13,43,91,.45),
-        rgba(13,43,91,.35)
-    ),
-    url("hero.png") center center/cover no-repeat;
-
-    display:flex;
-    align-items:center;
-    justify-content:flex-start;
-
-    padding:0 8%;
-}
-
-/* HERO CONTENT */
-
-.hero-content{
-
-    max-width:520px;
-
-}
-
-/* MAIN TITLE */
-
-.hero-content h1{
-
-    font-size:64px;
-
-    line-height:1.08;
-
-    font-weight:800;
-
-    margin-bottom:22px;
-
-}
-
-.white-text{
-
-    color:#FFFFFF;
-
-}
-
-.gold-text{
-
-    color:#D4A017;
-
-}
-
-/* DESCRIPTION */
-
-.hero-content p{
-
-    color:#FFFFFF;
-
-    font-size:20px;
-
-    line-height:1.7;
-
-    margin-bottom:35px;
-
-}
-
-/* TRACKING SEARCH */
-
-.tracking-box{
-
-    display:flex;
-
-    align-items:center;
-
-    width:100%;
-
-    background:#FFFFFF;
-
-    border-radius:14px;
-
-    overflow:hidden;
-
-    box-shadow:0 15px 40px rgba(0,0,0,.25);
-
-}
-
-.tracking-box input{
-
-    flex:1;
-
-    padding:20px;
-
-    border:none;
-
-    font-size:16px;
-
-}
-
-.tracking-box input:focus{
-
-    box-shadow:none;
-
-}
-
-.tracking-box button{
-
-    padding:20px 34px;
-
-    border:none;
-
-    background:#D4A017;
-
-    color:#FFFFFF;
-
-    font-weight:700;
-
-    font-size:16px;
-
-    cursor:pointer;
-
-}
-
-.tracking-box button:hover{
-
-    background:#BF8E12;
-
-}
-
-/* HERO STATS */
-
-.hero-stats{
-
-    display:flex;
-
-    gap:30px;
-
-    margin-top:40px;
-
-    flex-wrap:wrap;
-
-}
-
-.hero-stat{
-
-    color:#FFFFFF;
-
-}
-
-.hero-stat h2{
-
-    color:#D4A017;
-
-    font-size:34px;
-
-    margin-bottom:5px;
-
-}
-
-.hero-stat span{
-
-    font-size:15px;
-
-    opacity:.95;
-
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-    .tracking-hero{
-
-        min-height:560px;
-
-        justify-content:center;
-
-        padding:40px 20px;
-
-        text-align:center;
-
-    }
-
-    .hero-content{
-
-        max-width:100%;
-
-    }
-
-    .hero-content h1{
-
-        font-size:40px;
-
-    }
-
-    .hero-content p{
-
-        font-size:17px;
-
-    }
-
-    .tracking-box{
-
-        flex-direction:column;
-
-    }
-
-    .tracking-box input,
-    .tracking-box button{
-
-        width:100%;
-
-    }
-
-    .hero-stats{
-
-        justify-content:center;
-
-    }
-
-}
-
-
-
-
-
-
-
