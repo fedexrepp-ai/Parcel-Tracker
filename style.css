@@ -33,39 +33,6 @@ html{
    BRAND BANNER
 ========================== */
 
-.brand-banner{
-
-    background:rgba(255,255,255,.92);
-
-    text-align:center;
-
-    padding:18px 20px;
-
-}
-
-.brand-banner h1{
-
-    color:#0D2B5B;
-
-    font-size:42px;
-
-    margin:0;
-
-    font-weight:800;
-
-}
-
-.brand-banner p{
-
-    color:#D4A017;
-
-    font-size:18px;
-
-    margin:8px 0 0;
-
-    font-weight:600;
-
-}
 
 
 body{
