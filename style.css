@@ -975,6 +975,74 @@ footer p{
 
 }
 
+/* =====================================
+   SHIPMENT SUMMARY
+===================================== */
+
+.shipment-summary{
+
+    margin:80px auto;
+
+}
+
+.shipment-summary h2{
+
+    text-align:center;
+
+    color:#0D2B5B;
+
+    margin-bottom:35px;
+
+}
+
+.summary-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+
+}
+
+.summary-card{
+
+    background:#FFFFFF;
+
+    padding:22px;
+
+    border-radius:14px;
+
+    border-top:4px solid #D4A017;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.summary-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.summary-card h4{
+
+    color:#0D2B5B;
+
+    margin-bottom:10px;
+
+}
+
+.summary-card p{
+
+    color:#555;
+
+    margin:0;
+
+}
+
 
 
 
