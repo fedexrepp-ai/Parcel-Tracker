@@ -37,7 +37,30 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 <button id="logoutBtn">Logout</button>
 
 </header>
+<section class="dashboard-stats">
 
+    <div class="dashboard-card">
+        <h2 id="totalParcels">0</h2>
+        <p>Total Shipments</p>
+    </div>
+
+    <div class="dashboard-card">
+        <h2 id="inTransit">0</h2>
+        <p>In Transit</p>
+    </div>
+
+    <div class="dashboard-card">
+        <h2 id="delivered">0</h2>
+        <p>Delivered</p>
+    </div>
+
+    <div class="dashboard-card">
+        <h2 id="pending">0</h2>
+        <p>Pending</p>
+    </div>
+
+</section>
+  
 <div class="dashboard">
 
 <div class="stats">
@@ -63,7 +86,21 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 </div>
 
 </div>
+<section class="recent-activity">
 
+    <h2>Recent Shipment Activity</h2>
+
+    <div id="activityList">
+
+        <div class="activity-item">
+            No recent updates yet.
+        </div>
+
+    </div>
+
+</section>
+
+  
 <section class="admin-panel">
 
 <h2>🔍 Search Shipment</h2>
