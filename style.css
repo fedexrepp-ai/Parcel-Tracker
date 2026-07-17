@@ -740,3 +740,104 @@ footer p{
 #logoutBtn:hover{
     background:#b71c1c;
 }
+
+/* ==========================================
+   TRACKING RESULT
+========================================== */
+
+.tracking-result{
+
+    padding:80px 0;
+
+}
+
+.shipment-card{
+
+    background:#FFFFFF;
+
+    border-radius:18px;
+
+    padding:35px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.10);
+
+}
+
+.tracking-title{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+    flex-wrap:wrap;
+
+}
+
+.tracking-title h2{
+
+    font-size:34px;
+
+    color:#0D2B5B;
+
+}
+
+.status{
+
+    background:#0D2B5B;
+
+    color:#FFFFFF;
+
+    padding:10px 20px;
+
+    border-radius:30px;
+
+    font-weight:bold;
+
+}
+
+.info-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+    gap:20px;
+
+}
+
+.info-box{
+
+    background:#F8F9FB;
+
+    padding:20px;
+
+    border-left:4px solid #D4A017;
+
+    border-radius:12px;
+
+}
+
+.info-box h4{
+
+    color:#0D2B5B;
+
+    margin-bottom:8px;
+
+}
+
+.info-box p{
+
+    color:#555;
+
+    margin:0;
+
+}
+
+
+
+
+                               
