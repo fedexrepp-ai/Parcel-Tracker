@@ -13,7 +13,12 @@
 
 
 <body>
-
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+    
 <header class="header">
 
     <div class="header-container">
@@ -22,31 +27,15 @@
             <img src="logo.png" class="logo" alt="SwiftParcel Logistics Logo">
         </div>
 
-        <nav class="nav-links">
+        <nav>
+    <a href="index.html">Home</a>
+    <a href="track.html">Track Shipment</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+</nav>
 
-            <a href="#home">
-                <i class="fas fa-home"></i>
-                <span>Home</span>
-            </a>
-
-            <a href="#track">
-                <i class="fas fa-box"></i>
-                <span>Track</span>
-            </a>
-
-            <a href="#services">
-                <i class="fas fa-shipping-fast"></i>
-                <span>Services</span>
-            </a>
-
-            <a href="#contact">
-                <i class="fas fa-phone-alt"></i>
-                <span>Contact</span>
-            </a>
-
-        </nav>
-
-    </div>
+        
 
 </header>
 
