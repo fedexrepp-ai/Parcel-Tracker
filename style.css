@@ -544,48 +544,80 @@ header{
 }
 
 /* ---------- FOOTER ---------- */
-
 /* ================= FOOTER ================= */
 
 footer{
 
-    margin-top:60px;
-
     background:#F5F6F8;
 
-    color:#2F3A45;
-
-    text-align:center;
-
-    padding:30px 20px;
+    padding:40px 20px;
 
     border-top:2px solid #D4A017;
 
 }
 
-footer p{
+.footer-content{
 
-    margin:8px 0;
+    max-width:1200px;
 
-    color:#6B7280;
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:30px;
 
 }
 
-footer a{
+.footer-section h3{
 
     color:#0D2B5B;
 
-    text-decoration:none;
-
-    font-weight:600;
+    margin-bottom:15px;
 
 }
 
-footer a:hover{
+.footer-section p{
+
+    color:#555;
+
+    margin:8px 0;
+
+}
+
+.footer-section a{
+
+    text-decoration:none;
+
+    color:#555;
+
+}
+
+.footer-section a:hover{
 
     color:#D4A017;
 
 }
+
+footer hr{
+
+    margin:30px 0;
+
+    border:none;
+
+    border-top:1px solid #DDD;
+
+}
+
+footer > p{
+
+    text-align:center;
+
+    color:#777;
+
+}
+
 
 
 
