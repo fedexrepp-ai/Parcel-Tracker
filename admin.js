@@ -15,6 +15,7 @@ import {
     getCountFromServer,
     addDoc,
     updateDoc,
+    deleteDoc,
     doc,
     arrayUnion,
     serverTimestamp,
@@ -33,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const createButton = document.getElementById("createParcel");
     const updateButton = document.getElementById("updateParcel");
+ const deleteButton = document.getElementById("deleteParcel");
     const loadButton = document.getElementById("loadShipment");
     const logoutBtn = document.getElementById("logoutBtn");
     const message = document.getElementById("message");
