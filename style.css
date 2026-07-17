@@ -891,6 +891,51 @@ align-items:center;
 
 
    
+/* ===========================
+   ANIMATIONS
+=========================== */
 
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.hero-content{
+    animation:fadeUp 1s ease;
+}
+
+.feature-card,
+.service-card,
+.about-card,
+.contact-card,
+.stat-card,
+.why-card,
+.shipment-card{
+    animation:fadeUp .8s ease;
+}
+
+.btn-primary,
+.btn-secondary{
+    transition:all .3s ease;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover{
+    transform:translateY(-3px) scale(1.05);
+}
+
+.logo{
+    transition:transform .3s ease;
+}
+
+.logo:hover{
+    transform:rotate(5deg) scale(1.08);
+}
 
    
