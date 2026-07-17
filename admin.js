@@ -78,7 +78,35 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("Dashboard Error:", error);
         }
     }
+let total = 0;
+let delivered = 0;
+let transit = 0;
+let pending = 0;
 
+// For each parcel:
+total++;
+
+switch(parcel.status){
+
+case "Delivered":
+delivered++;
+break;
+
+case "In Transit":
+transit++;
+break;
+
+default:
+pending++;
+
+}
+
+document.getElementById("totalParcels").textContent = total;
+document.getElementById("delivered").textContent = delivered;
+document.getElementById("inTransit").textContent = transit;
+document.getElementById("pending").textContent = pending;
+
+ 
     // Recent Shipments
     async function loadRecentShipments() {
 
@@ -305,6 +333,8 @@ createButton.addEventListener("click", async () => {
         status = customStatus;
     }
 
+
+     
     try {
 
         await updateDoc(doc(db, "parcels", loadedParcelId), {
