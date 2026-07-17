@@ -231,105 +231,171 @@ body{
 /* ================= HEADER ================= */
 
 header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 90px;
-    z-index: 1000;
 
-    background: linear-gradient(
+    position: relative;
+    width:100%;
+
+    background:linear-gradient(
         90deg,
-        #02142F 0%,
-        #062A63 50%,
-        #0A3B82 100%
+        #02142F,
+        #062A63,
+        #0A3B82
     );
 
-    border-bottom: 3px solid #D4A017;
-    box-shadow: 0 10px 30px rgba(0,0,0,.45);
+    border-bottom:3px solid #D4A017;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
+
+    z-index:1000;
+
 }
 
-    box-shadow: 0 8px 25px rgba(0,0,0,.25);
-    border-bottom: 3px solid #D4A017;
-}
 
 .header-container{
-    max-width: 1300px;
-    width: 92%;
-    height: 90px;
-    margin: 0 auto;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    width:92%;
+    max-width:1200px;
+
+    margin:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    padding:25px 0 30px;
+
 }
+
+
+/* ================= LARGE BRAND LOGO ================= */
+
 .logo-area{
-    display: flex;
-    align-items: center;
-    gap: 18px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
 }
+
 
 .logo{
-    width: 120px;
-    height: auto;
-}
 
+    width:150px;
+    height:auto;
+
+    margin-bottom:10px;
+
+    filter:drop-shadow(0 5px 10px rgba(0,0,0,.35));
+
+}
 
 
 .company-name h2{
+
     color:#FFFFFF;
-    font-size:28px;
+
+    font-size:34px;
+
     font-weight:800;
-    margin:0;
+
+    letter-spacing:1px;
+
+    margin:5px 0;
+
 }
+
 
 .company-name span{
-    color:#FFD54A;
+
+    color:#D4A017;
+
+    font-size:15px;
+
     font-weight:600;
-    letter-spacing:2px;
+
+    letter-spacing:3px;
+
 }
+
+
+/* ================= NAVIGATION BOXES ================= */
+
+.nav-links{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:20px;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+}
+
 
 .nav-links a{
-    color:#FFFFFF;
-    font-size:16px;
-    font-weight:700;
+
+    width:80px;
+
+    height:70px;
+
+    background:white;
+
+    border-radius:12px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    color:#0D2B5B;
+
     text-decoration:none;
-    transition:0.3s;
+
+    font-weight:bold;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+
 }
+
 
 .nav-links a:hover{
-    color:#FFD54A;
+
+    background:#D4A017;
+
+    color:white;
+
 }
 
-/* HERO LEFT ALIGN */
 
+
+/* HERO LEFT ALIGN */
 .tracking-hero{
 
     min-height:650px;
 
     background:
     linear-gradient(
-        rgba(13,43,91,.45),
-        rgba(13,43,91,.45)
+    rgba(13,43,91,.45),
+    rgba(13,43,91,.45)
     ),
     url("hero.png") center/cover no-repeat;
 
 
     display:flex;
 
-    justify-content:flex-start;
-
     align-items:center;
 
+    justify-content:flex-start;
+
     padding-left:8%;
-}
-
-
-.hero-content{
-
-    width:450px;
-
-    text-align:left;
 
 }
 
