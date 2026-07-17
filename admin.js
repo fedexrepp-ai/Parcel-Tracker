@@ -344,7 +344,60 @@ createButton.addEventListener("click", async () => {
                 description: document.getElementById("description").value.trim(),
                 time: new Date().toISOString()
             })
+deleteButton.addEventListener("click", async () => {
 
+    if (!loadedParcelId) {
+        alert("Please load a shipment first.");
+        return;
+    }
+
+    const confirmDelete = confirm(
+        "Are you sure you want to permanently delete this shipment?"
+    );
+
+    if (!confirmDelete) {
+        return;
+    }
+
+    try {
+
+        await deleteDoc(doc(db, "parcels", loadedParcelId));
+
+        message.innerHTML = `
+            <h3>✅ Shipment Deleted Successfully</h3>
+        `;
+
+        loadedParcelId = null;
+
+        // Clear all form fields
+        document.querySelectorAll("input, textarea").forEach(field => {
+            if (
+                field.id !== "searchTracking" &&
+                field.type !== "button"
+            ) {
+                field.value = "";
+            }
+        });
+
+        document.getElementById("status").selectedIndex = 0;
+
+        loadDashboardStats();
+        loadRecentShipments();
+
+    } catch (error) {
+
+        console.error(error);
+
+        message.innerHTML =
+            "❌ Delete failed: " + error.message;
+
+    }
+
+});
+
+         
+
+         
         });
 
         message.innerHTML = `
