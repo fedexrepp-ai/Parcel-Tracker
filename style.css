@@ -23,6 +23,11 @@
 /* ==========================
    WEBSITE BACKGROUND
 ========================== */
+html{
+
+    scroll-behavior:smooth;
+
+}
 
 body{
 
