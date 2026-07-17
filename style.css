@@ -596,37 +596,54 @@ footer p{
 
 }
 
-
-/* Tracking Action Buttons */
-
-.tracking-actions{
-
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    flex-wrap:wrap;
-    margin-top:30px;
-
+/* Professional Tracking Box */
+.tracking-box {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    max-width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-
-.tracking-actions button{
-
-    background:var(--primary);
-    color:var(--white);
-    border:none;
-    padding:12px 20px;
-    border-radius:8px;
-    cursor:pointer;
-    font-weight:bold;
-
+.tracking-box input {
+    flex: 1;
+    border: none;
+    padding: 18px 22px;
+    font-size: 16px;
+    outline: none;
 }
 
+.tracking-box button {
+    border: none;
+    background: var(--secondary);
+    color: #fff;
+    padding: 18px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 0;
+}
 
-.tracking-actions button:hover{
+.tracking-box button:hover {
+    background: #b98b14;
+}
 
-    background:var(--secondary);
+@media (max-width:768px) {
+    .tracking-box {
+        width: 90%;
+        flex-direction: column;
+        border-radius: 16px;
+    }
 
+    .tracking-box input,
+    .tracking-box button {
+        width: 100%;
+        border-radius: 0;
+    }
 }
 
 
