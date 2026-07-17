@@ -284,26 +284,23 @@ header{
 }
 
 .company-name span{
-    color:#D4A017;
-    font-size:13px;
+    color:#FFD54A;
+    font-weight:600;
     letter-spacing:2px;
-    text-transform:uppercase;
 }
 
-
-nav{
-    display: flex;
-    align-items: center;
+.nav-links a{
+    color:#FFFFFF;
+    font-size:16px;
+    font-weight:700;
+    text-decoration:none;
+    transition:0.3s;
 }
 
-.nav-links{
-    display: flex;
-    align-items: center;
-    gap: 35px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+.nav-links a:hover{
+    color:#FFD54A;
 }
+
 
 /* ================= HERO ================= */
 
