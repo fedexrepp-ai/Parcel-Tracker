@@ -366,6 +366,41 @@ body{
 .delete-btn:hover{
     background:#b71c1c;
 }
+
+/* ===========================
+   SEARCH FILTER
+=========================== */
+
+#filterSearch,
+#filterStatus{
+
+width:100%;
+padding:14px;
+margin:12px 0;
+border:1px solid var(--border);
+border-radius:8px;
+font-size:16px;
+
+}
+
+#searchShipmentBtn{
+
+background:var(--primary);
+color:white;
+border:none;
+padding:14px 24px;
+border-radius:8px;
+cursor:pointer;
+font-weight:600;
+transition:.3s;
+
+}
+
+#searchShipmentBtn:hover{
+
+background:#163c7c;
+
+}
    
 
               
