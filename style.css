@@ -253,69 +253,41 @@ header{
 
 .header-container{
 
-    width:92%;
-    max-width:1200px;
-
-    margin:auto;
-
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
 
-    padding:25px 0 30px;
+    padding:20px 0 25px;
 
 }
 
 
-/* ================= LARGE BRAND LOGO ================= */
-
-.logo{
-
-    width:220px;
-    height:auto;
-
-    margin-bottom:15px;
-
-    filter:drop-shadow(0 8px 15px rgba(0,0,0,.45));
-
-}
-
+/* ================= BIG BRAND LOGO ================= */
 
 .logo-area{
 
     display:flex;
-    flex-direction:column;
-    align-items:center;
     justify-content:center;
-
-}
-
-.company-name h2{
-
-    color:#FFFFFF;
-
-    font-size:34px;
-
-    font-weight:800;
-
-    letter-spacing:1px;
-
-    margin:5px 0;
+    align-items:center;
 
 }
 
 
-.company-name span{
+.logo{
 
-    color:#D4A017;
+    width:230px;
+    height:auto;
 
-    font-size:15px;
+    filter:drop-shadow(0 8px 18px rgba(0,0,0,.5));
 
-    font-weight:600;
+    transition:.3s ease;
 
-    letter-spacing:3px;
+}
+
+
+.logo:hover{
+
+    transform:scale(1.05);
 
 }
 
