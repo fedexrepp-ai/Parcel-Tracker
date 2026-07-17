@@ -16,65 +16,86 @@
 <body>
 
 
-<!-- ================= HEADER ================= -->
+<!-- HEADER -->
 
-<header>
-    <div class="header-container">
+<header class="tracking-header">
 
-        <div class="logo-area">
-            <img src="logo.png" alt="SwiftParcel Logistics Logo" class="logo">
-            <div class="company-name">
-                <h2>SwiftParcel Logistics</h2>
-                <span>Fast • Secure • Worldwide</span>
-            </div>
-        </div>
-
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#track">Track Shipment</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-
+    <div class="top-logo">
+        <img src="logo.png" class="logo" alt="SwiftParcel Logo">
+        <h2>SwiftParcel Logistics</h2>
+        <p>Fast • Secure • Worldwide</p>
     </div>
+
+
+    <nav class="icon-nav">
+
+        <a href="index.html">
+            <span>🏠</span>
+            <small>Home</small>
+        </a>
+
+        <a href="index.html#track">
+            <span>📦</span>
+            <small>Track</small>
+        </a>
+
+        <a href="#services">
+            <span>🚚</span>
+            <small>Services</small>
+        </a>
+
+        <a href="#contact">
+            <span>✉️</span>
+            <small>Contact</small>
+        </a>
+
+    </nav>
+
 </header>
 
-<!-- ================= HERO ================= -->
 
-<section class="hero">
 
-    <div class="hero-overlay"></div>
+<!-- HERO TRACKING SECTION -->
 
-    <div class="hero-content">
+<section class="tracking-hero">
 
-        <h1>Worldwide Parcel Tracking Made Simple</h1>
 
-        <p>
-            SwiftParcel Logistics delivers fast, secure and reliable
-            shipping solutions across the globe. Track your shipment in
-            real time from pickup to delivery.
-        </p>
+<div class="hero-content">
 
-        <div class="tracking-box" id="track">
 
-            <input
-                type="text"
-                id="trackingCode"
-                placeholder="Enter Your Tracking Number">
+<h1>
+Track Your Shipment Anywhere
+</h1>
 
-            <button onclick="searchParcel()">
-                Track Shipment
-            </button>
 
-        </div>
+<p>
+Enter your tracking number and get real-time shipment updates.
+</p>
 
-    </div>
+
+
+<div class="tracking-box">
+
+<input 
+type="text"
+id="trackingCode"
+placeholder="Enter Tracking Number">
+
+
+<button onclick="searchParcel()">
+Track Shipment
+</button>
+
+
+</div>
+
+
+</div>
+
 
 </section>
 
+    
 <section class="services" id="services">
 
 
