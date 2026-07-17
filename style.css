@@ -712,34 +712,53 @@ footer p{
     background:#b71c1c;
 }
 
-
-/* Move tracking search area lower */
-.hero {
-    position: relative;
-    padding-bottom: 120px;
+/* Tracking box size and position */
+.hero-content {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    width: 100%;
 }
 
 .tracking-box {
-    position: absolute;
-    bottom: 40px;
-    left: 0;
-    width: 100%;
-    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 75%;
+    max-width: 750px;
+    margin: auto;
+}
+
+.tracking-box input {
+    flex: 1;
+    height: 50px;
+}
+
+.tracking-box button {
+    height: 50px;
+    white-space: nowrap;
 }
 
 
 /* Mobile */
 @media (max-width:768px){
 
-    .hero {
-        padding-bottom: 160px;
+    .hero-content {
+        bottom: 35px;
     }
 
     .tracking-box {
-        bottom: 30px;
-        padding:0 15px;
+        width: 90%;
+        flex-direction: column;
+    }
+
+    .tracking-box input,
+    .tracking-box button {
+        width: 100%;
     }
 
 }
+
+
 
     
