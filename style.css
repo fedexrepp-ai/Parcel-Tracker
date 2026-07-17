@@ -355,10 +355,11 @@ body{
 /* ---------- TRACKING CARD ---------- */
 
 .search-card{
-    background:rgba(255,255,255,0.95);
-    backdrop-filter:blur(10px);
+    margin-top:-80px;
+    position:relative;
+    z-index:2;
+    border-radius:20px;
 }
-
 
 .search-box{
     display:flex;
