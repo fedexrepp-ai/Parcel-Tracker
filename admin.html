@@ -96,7 +96,35 @@ Load Shipment
 Delete Shipment
 </button>
 </section>
+<section class="admin-panel">
 
+<h2>Search Shipments</h2>
+
+<input
+type="text"
+id="filterSearch"
+placeholder="Search by Tracking Number, Sender or Receiver">
+
+<select id="filterStatus">
+
+<option value="">All Statuses</option>
+
+<option>Shipment Created</option>
+<option>Picked Up</option>
+<option>In Transit</option>
+<option>Custom Check</option>
+<option>Out for Delivery</option>
+<option>Delivered</option>
+
+</select>
+
+<button id="searchShipmentBtn">
+Search
+</button>
+
+</section>
+
+  
 <section class="admin-panel">
 
 <h2>Create / Update Shipment</h2>
