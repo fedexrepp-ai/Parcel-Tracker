@@ -31,7 +31,21 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         result.innerHTML = "Searching...";
+// Create the map
+const map = L.map("shipmentMap").setView([51.5074, -0.1278], 5);
 
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: "&copy; OpenStreetMap contributors"
+}).addTo(map);
+
+// Add a marker
+L.marker([51.5074, -0.1278])
+    .addTo(map)
+    .bindPopup(parcel.location)
+    .openPopup();
+
+
+      
         try {
 
             const q = query(
