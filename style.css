@@ -713,32 +713,33 @@ footer p{
 }
 
 
-
-/* Move tracking search box lower on hero section */
-.tracking-box {
-    margin-top: 150px;
+/* Move tracking search area lower */
+.hero {
+    position: relative;
+    padding-bottom: 120px;
 }
 
-/* Keep mobile layout clean */
-@media (max-width: 768px) {
+.tracking-box {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+}
+
+
+/* Mobile */
+@media (max-width:768px){
+
+    .hero {
+        padding-bottom: 160px;
+    }
 
     .tracking-box {
-        margin-top: 150px;
-        padding: 0 15px;
+        bottom: 30px;
+        padding:0 15px;
     }
 
-    .tracking-box input {
-        height: 50px;
-    }
-
-    .tracking-box button {
-        height: 50px;
-    }
 }
 
-
-
-
-
-
-
+    
