@@ -784,6 +784,60 @@ align-items:center;
 }
 
 
+/* ===========================
+   WHY CHOOSE US
+=========================== */
+
+.why-us{
+    padding:70px 20px;
+    background:#F7F8FA;
+    text-align:center;
+}
+
+.why-us h2{
+    color:var(--primary);
+    font-size:36px;
+    margin-bottom:20px;
+}
+
+.why-text{
+    max-width:750px;
+    margin:0 auto 50px;
+    font-size:18px;
+    line-height:1.8;
+}
+
+.why-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+    max-width:1200px;
+    margin:auto;
+}
+
+.why-card{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+    border-bottom:5px solid var(--secondary);
+    transition:.3s;
+}
+
+.why-card:hover{
+    transform:translateY(-8px);
+}
+
+.why-card h3{
+    color:var(--primary);
+    margin-bottom:15px;
+}
+
+.why-card p{
+    line-height:1.7;
+}
+
+
    
 
 
