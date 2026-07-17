@@ -50,8 +50,8 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
 
             const totalSnap = await getCountFromServer(collection(db, "parcels"));
-            document.getElementById("totalShipments").textContent =
-                totalSnap.data().count;
+            document.getElementById("totalParcels").textContent =
+    totalSnap.data().count;
 
             const transitSnap = await getCountFromServer(
                 query(collection(db, "parcels"),
@@ -67,9 +67,15 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("delivered").textContent =
                 deliveredSnap.data().count;
 
-            const delayedSnap = await getCountFromServer(
-                query(collection(db, "parcels"),
-                where("status", "==", "Delayed"))
+            const pendingSnap = await getCountFromServer(
+    query(
+        collection(db, "parcels"),
+        where("status", "!=", "Delivered")
+    )
+);
+
+document.getElementById("pending").textContent =
+    pendingSnap.data().count;
             );
             document.getElementById("delayed").textContent =
                 delayedSnap.data().count;
@@ -78,33 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("Dashboard Error:", error);
         }
     }
-let total = 0;
-let delivered = 0;
-let transit = 0;
-let pending = 0;
 
-// For each parcel:
-total++;
-
-switch(parcel.status){
-
-case "Delivered":
-delivered++;
-break;
-
-case "In Transit":
-transit++;
-break;
-
-default:
-pending++;
-
-}
-
-document.getElementById("totalParcels").textContent = total;
-document.getElementById("delivered").textContent = delivered;
-document.getElementById("inTransit").textContent = transit;
-document.getElementById("pending").textContent = pending;
 
  
     // Recent Shipments
