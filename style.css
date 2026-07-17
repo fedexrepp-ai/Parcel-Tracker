@@ -407,6 +407,17 @@ align-items:center;
 .contact-form button{
     background:var(--primary);
     color:white;
+    border:none;
+    padding:14px 25px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+}
+
+.contact-form button:hover{
+    background:#163c7c;
+}
 
 
 /* ===========================
