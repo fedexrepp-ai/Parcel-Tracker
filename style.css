@@ -250,17 +250,17 @@ header{
     align-items: center;
 }
 
+.logo{
+    width: 70px;
+    height: auto;
+    display: block;
+}
+
 .logo-area{
     display: flex;
     align-items: center;
     gap: 15px;
 }
-
-.logo{
-    width: 65px;
-    height: auto;
-}
-
 .company-name h2{
     color: #fff;
     margin: 0;
