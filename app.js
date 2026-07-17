@@ -29,8 +29,14 @@ document.addEventListener("DOMContentLoaded", () => {
             result.innerHTML = "Please enter a tracking number.";
             return;
         }
-
-        result.innerHTML = "Searching...";
+result.innerHTML = `
+<div class="loading-card">
+    <div class="loader"></div>
+    <h3>Searching Shipment...</h3>
+    <p>Please wait while we retrieve your shipment information.</p>
+</div>
+`;
+      
 
       // Remove previous map if it exists
 const mapContainer = document.getElementById("shipmentMap");
