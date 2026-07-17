@@ -62,6 +62,7 @@ input{
     transition:var(--transition);
 }
 
+
 input:focus{
     outline:none;
     border-color:var(--secondary);
@@ -251,16 +252,18 @@ header{
 }
 
 .logo{
-    width: 180px;
+    width: 100px;
     height: auto;
     display: block;
+    transition: 0.3s ease;
 }
 
-.logo-area{
-    display: flex;
-    align-items: center;
-    gap: 15px;
+.logo:hover{
+    transform: scale(1.05);
 }
+
+
+
 .company-name h2{
     color: #fff;
     margin: 0;
