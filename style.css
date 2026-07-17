@@ -233,15 +233,25 @@ body{
 
 /* ================= WHITE HEADER + BIG LOGO ================= */
 
+/* ================= ASH HEADER ================= */
+
 header{
 
     width:100%;
 
-    background:#FFFFFF;
+    background:#F3F4F6;
 
-    border-bottom:4px solid #D4A017;
+    border-bottom:2px solid #D4A017;
 
-    box-shadow:0 8px 25px rgba(0,0,0,.15);
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+
+    padding:10px 0;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
 
 }
 
