@@ -1,4 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Shipment | SwiftParcel Logistics</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="logo-area">
+        <img src="logo.png" alt="SwiftParcel Logistics Logo" class="logo">
+        <h1>SwiftParcel Logistics</h1>
+    </div>
+
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="track.html" class="active">Track Shipment</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+</header>
+
+<main class="page-content">
+
+    <div class="tracking-box">
+
+        <h2>Track Your Shipment</h2>
+
+        <p>
+            Enter your tracking number below to view the latest shipment status.
+        </p>
+
+        <input
+            type="text"
+            id="trackingCode"
+            placeholder="Enter Tracking Number">
+
+        <button onclick="searchParcel()">
+            Track Shipment
+        </button>
+
+        <div id="result"></div>
+
+    </div>
+
+</main>
+
+<footer>
+
+    <p>© 2026 SwiftParcel Logistics. All Rights Reserved.</p>
+
+</footer>
 
 <script type="module" src="firebase.js"></script>
 <script type="module" src="app.js"></script>
 
+</body>
+</html>
