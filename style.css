@@ -259,17 +259,10 @@ header{
 /* ================= LARGE LOGO ================= */
 
 .logo{
-    width:500px;
+    width:600px;
     max-width:95%;
     height:auto;
-
-    display:block;
-
-    margin:0 auto 10px;
-
-    filter:drop-shadow(0 10px 20px rgba(0,0,0,.25));
 }
-
 /* ================= NAVIGATION ================= */
 
 .nav-links{
