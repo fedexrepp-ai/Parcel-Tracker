@@ -810,3 +810,162 @@ footer p{
 
 }
 
+/* TRACKING HEADER */
+
+.tracking-header{
+    background:var(--primary);
+    text-align:center;
+    padding:20px 0;
+}
+
+
+.top-logo img{
+    width:90px;
+}
+
+
+.top-logo h2{
+    color:white;
+    margin:10px 0 0;
+}
+
+
+.top-logo p{
+    color:var(--secondary);
+    margin:0;
+}
+
+
+/* ICON MENU */
+
+.icon-nav{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:20px;
+    flex-wrap:wrap;
+}
+
+
+.icon-nav a{
+
+    width:85px;
+    height:75px;
+
+    background:white;
+
+    border-radius:15px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-decoration:none;
+
+    color:var(--primary);
+
+    box-shadow:var(--shadow);
+
+}
+
+
+.icon-nav span{
+    font-size:25px;
+}
+
+
+.icon-nav small{
+    font-weight:bold;
+}
+
+
+/* HERO IMAGE */
+
+
+.tracking-hero{
+
+min-height:500px;
+
+background:
+
+linear-gradient(
+rgba(13,43,91,.55),
+rgba(13,43,91,.55)
+),
+
+url("hero.png")
+
+center/cover no-repeat;
+
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+text-align:center;
+
+}
+
+
+.tracking-hero h1{
+
+color:white;
+
+font-size:48px;
+
+}
+
+
+.tracking-hero p{
+
+color:white;
+
+font-size:20px;
+
+margin-bottom:35px;
+
+}
+
+
+.tracking-box{
+
+max-width:650px;
+
+margin:auto;
+
+display:flex;
+
+background:white;
+
+border-radius:50px;
+
+overflow:hidden;
+
+}
+
+
+.tracking-box input{
+
+flex:1;
+
+border:none;
+
+padding:18px;
+
+}
+
+
+.tracking-box button{
+
+border-radius:0;
+
+padding:18px 35px;
+
+}
+
+
+
+
