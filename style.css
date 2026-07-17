@@ -240,10 +240,14 @@ header{
 
     background: linear-gradient(
         90deg,
-        #061C45 0%,
-        #0D2B5B 50%,
-        #123A73 100%
+        #02142F 0%,
+        #062A63 50%,
+        #0A3B82 100%
     );
+
+    border-bottom: 3px solid #D4A017;
+    box-shadow: 0 10px 30px rgba(0,0,0,.45);
+}
 
     box-shadow: 0 8px 25px rgba(0,0,0,.25);
     border-bottom: 3px solid #D4A017;
