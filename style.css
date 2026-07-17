@@ -256,12 +256,18 @@ header{
     align-items:center;
     padding:10px 0 12px;
 }
+/* ================= LARGE LOGO ================= */
 
 .logo{
-    width:420px;
-    max-width:90%;
+    width:500px;
+    max-width:95%;
     height:auto;
-    margin-bottom:8px;
+
+    display:block;
+
+    margin:0 auto 10px;
+
+    filter:drop-shadow(0 10px 20px rgba(0,0,0,.25));
 }
 
 /* ================= NAVIGATION ================= */
