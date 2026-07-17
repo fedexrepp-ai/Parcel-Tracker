@@ -228,11 +228,10 @@ body{
 }
 
 
-/* ================= HEADER ================= */
+/* ================= LARGE HEADER DESIGN ================= */
 
 header{
 
-    position: relative;
     width:100%;
 
     background:linear-gradient(
@@ -242,99 +241,90 @@ header{
         #0A3B82
     );
 
-    border-bottom:3px solid #D4A017;
+    border-bottom:4px solid #D4A017;
 
-    box-shadow:0 8px 25px rgba(0,0,0,.25);
-
-    z-index:1000;
+    box-shadow:0 10px 35px rgba(0,0,0,.45);
 
 }
 
 
 .header-container{
 
+    width:95%;
+    max-width:1400px;
+
+    margin:auto;
+
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
 
-    padding:20px 0 25px;
+    padding:35px 0 40px;
 
 }
 
 
-/* ================= BIG BRAND LOGO ================= */
-
-.logo-area{
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-}
-
+/* BIG LOGO */
 
 .logo{
 
-    width:230px;
+    width:300px;
+
     height:auto;
 
-    filter:drop-shadow(0 8px 18px rgba(0,0,0,.5));
+    filter:drop-shadow(0 10px 20px rgba(0,0,0,.5));
 
-    transition:.3s ease;
-
-}
-
-
-.logo:hover{
-
-    transform:scale(1.05);
+    margin-bottom:25px;
 
 }
 
 
-/* ================= NAVIGATION BOXES ================= */
+/* NAVIGATION BOXES */
 
 .nav-links{
 
     display:flex;
 
-    gap:15px;
+    justify-content:center;
 
-    margin-top:20px;
+    gap:20px;
 
     flex-wrap:wrap;
-
-    justify-content:center;
 
 }
 
 
 .nav-links a{
 
-    width:80px;
+    width:100px;
 
-    height:70px;
+    height:85px;
 
-    background:white;
+    background:#FFFFFF;
 
-    border-radius:12px;
+    border:2px solid #D4A017;
+
+    border-radius:18px;
 
     display:flex;
-
-    flex-direction:column;
 
     justify-content:center;
 
     align-items:center;
 
+    flex-direction:column;
 
     color:#0D2B5B;
 
-    text-decoration:none;
-
     font-weight:bold;
 
-    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    font-size:15px;
+
+    text-decoration:none;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
 
 }
 
@@ -345,9 +335,9 @@ header{
 
     color:white;
 
+    transform:translateY(-5px);
+
 }
-
-
 
 /* HERO LEFT ALIGN */
 .tracking-hero{
