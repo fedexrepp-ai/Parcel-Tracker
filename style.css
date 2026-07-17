@@ -183,3 +183,205 @@ header{
     }
 
 }
+/* =====================================================
+   HERO SECTION
+===================================================== */
+
+.hero{
+
+    min-height:100vh;
+
+    background:
+        linear-gradient(
+            rgba(13,43,91,.55),
+            rgba(13,43,91,.55)
+        ),
+        url("hero.png") center center/cover no-repeat;
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+/* Overlay */
+
+.hero-overlay{
+
+    width:100%;
+
+}
+
+/* Content */
+
+.hero-content{
+
+    max-width:1200px;
+
+    margin:0 auto;
+
+    padding:0 8%;
+
+    max-width:550px;
+
+}
+
+/* Hero Logo */
+
+.hero-logo{
+
+    width:280px;
+
+    max-width:90%;
+
+    height:auto;
+
+    margin-bottom:25px;
+
+}
+
+/* Heading */
+
+.hero-content h1{
+
+    font-size:64px;
+
+    line-height:1.1;
+
+    margin-bottom:20px;
+
+}
+
+.white-text{
+
+    color:#FFFFFF;
+
+}
+
+.gold-text{
+
+    color:#D4A017;
+
+}
+
+/* Description */
+
+.hero-content p{
+
+    color:#FFFFFF;
+
+    font-size:20px;
+
+    margin-bottom:35px;
+
+    line-height:1.7;
+
+}
+
+/* Tracking Box */
+
+.tracking-box{
+
+    display:flex;
+
+    background:#FFFFFF;
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.20);
+
+}
+
+.tracking-box input{
+
+    flex:1;
+
+    border:none;
+
+    padding:18px;
+
+    font-size:16px;
+
+}
+
+.tracking-box input:focus{
+
+    box-shadow:none;
+
+}
+
+.tracking-box button{
+
+    border:none;
+
+    background:#D4A017;
+
+    color:#FFFFFF;
+
+    padding:18px 30px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+}
+
+.tracking-box button:hover{
+
+    background:#BF8E12;
+
+}
+
+/* Mobile */
+
+@media (max-width:768px){
+
+    .hero{
+
+        min-height:80vh;
+
+    }
+
+    .hero-content{
+
+        max-width:100%;
+
+        text-align:center;
+
+        padding:40px 20px;
+
+    }
+
+    .hero-logo{
+
+        width:220px;
+
+    }
+
+    .hero-content h1{
+
+        font-size:42px;
+
+    }
+
+    .hero-content p{
+
+        font-size:17px;
+
+    }
+
+    .tracking-box{
+
+        flex-direction:column;
+
+    }
+
+    .tracking-box button{
+
+        width:100%;
+
+    }
+
+}
