@@ -1017,31 +1017,36 @@ footer p{
 /* MOBILE */
 
 @media(max-width:768px){
+.tracking-hero{
 
-    .tracking-hero{
+    min-height:650px;
 
-        justify-content:center;
-
-        padding:20px;
-
-    }
-
-
-    .hero-content{
-
-        width:100%;
-
-        text-align:center;
-
-    }
+    background:
+    linear-gradient(
+        rgba(13,43,91,0.45),
+        rgba(13,43,91,0.45)
+    ),
+    url("hero.png") center/cover no-repeat;
 
 
-    .hero-content h1{
+    display:flex;
 
-        font-size:40px;
+    justify-content:flex-start;
 
-    }
+    align-items:center;
 
+
+    padding-left:8%;
+}
+
+
+.hero-content{
+
+    width:450px;
+
+    text-align:left;
+
+}
 
     .tracking-box{
 
